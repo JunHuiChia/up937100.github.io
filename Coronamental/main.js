@@ -52,6 +52,5 @@ function buyBuildingHands(){
 window.setInterval(function(){
 	infectClick(building_flies);
 	infectClick(building_hands*5);
-	
 }, 1000);
 
