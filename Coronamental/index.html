@@ -17,16 +17,36 @@
 		<span class="cells_name"> Cells Infected : </span> 
 		<span id="cells_amount">0</span> 
 	</span>  
-	<button onClick="infectClick(1)"> Infect </button> 
+	<button id="infectButton" onClick="infectClick(upgrade_click)"> Infect </button> 
+	</div> 
+	
+	<br>
+	<div>  
+	<span id="upgrade_click">  
+	Click Multiplier: <span id="upgrade_click_amount">1</span><br> 
+	Cost: <span id="upgrade_click_cost">50</span> 
+	</span> 
+	<button onClick="buyUpgradeClick()"> buy </button> 
 	</div> 
 	 
+	
+	<br><br><br> <!--needs changing when using css-->
+	
 	<div>  
-	<span id="building_fly">  
-	Fly: <span id="building_fly_amount">0</span><br> 
-	Cost: <span id="building_fly_cost">10</span> 
+	<span id="building_flies">  
+	Flies: <span id="building_flies_amount">0</span><br> 
+	Cost: <span id="building_flies_cost">10</span> 
 	</span> 
-	<button onClick="buyBuildingFly()"> buy </button> 
-	 
+	<button onClick="buyBuildingFlies()"> buy </button> 
+	</div> 
+	
+	<br>
+	<div>  
+	<span id="building_hands">  
+	Dirty Hands: <span id="building_hands_amount">0</span><br> 
+	Cost: <span id="building_hands_cost">150</span> 
+	</span> 
+	<button onClick="buyBuildingHands()"> buy </button> 
 	</div> 
 	 
 	 
