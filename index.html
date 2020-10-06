@@ -1,1 +1,38 @@
-Hello World
+<!DOCTYPE HTML> 
+<html> 
+<head>  
+	<link rel="stylesheet" type="text/css" href="interface.css" /> 
+	<title> Coronamental </title> 
+	<style id="colour_theme"> 
+	.bgc{background-color: black;}.tc{color: gray;}  
+	</style> 
+</head> 
+<body class="bgc tc">  
+	<header> 
+	<h1> Coronamental Game </h1> 
+	</header> 
+	 
+	<div>  
+	<span id="cells"> 
+		<span class="cells_name"> Cells Infected : </span> 
+		<span id="cells_amount">0</span> 
+	</span>  
+	<button onClick="infectClick(1)"> Infect </button> 
+	</div> 
+	 
+	<div>  
+	<span id="building_fly">  
+	Fly: <span id="building_fly_amount">0</span><br> 
+	Cost: <span id="building_fly_cost">10</span> 
+	</span> 
+	<button onClick="buyBuildingFly()"> buy </button> 
+	 
+	</div> 
+	 
+	 
+	 
+	 
+	 
+	<script type="text/javascript" src="main.js"></script> 
+</body> 
+<html>
