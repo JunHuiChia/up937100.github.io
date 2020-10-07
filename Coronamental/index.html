@@ -21,6 +21,8 @@
 	</div> 
 	
 	<br>
+	
+	<!--UPGRADES-->
 	<div>  
 	<span id="upgrade_click">  
 	Click Multiplier: <span id="upgrade_click_amount">1</span><br> 
@@ -32,6 +34,8 @@
 	
 	<br><br><br> <!--needs changing when using css-->
 	
+	
+	<!--BUILDINGS-->
 	<div>  
 	<span id="building_flies">  
 	Flies: <span id="building_flies_amount">0</span><br> 
@@ -48,8 +52,14 @@
 	</span> 
 	<button onClick="buyBuildingHands()"> buy </button> 
 	</div> 
-	 
-	 
+	
+	<!--Minigames-->
+	<br><br><br><br>
+	<label for="guesser">Guess the number! (Costs 10% of your cells, Win double if correct)</label>
+	<br>
+	<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
+	<button onClick="guessNumber()">Guess</button>
+	<span id="guessStatus"></span>
 	 
 	 
 	 

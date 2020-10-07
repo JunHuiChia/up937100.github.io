@@ -48,6 +48,29 @@ function buyBuildingHands(){
 	document.getElementById('building_hands_cost').innerHTML = nextCost;
 }
 
+function guessNumber(){
+	var userGuess = document.getElementById('userGuess').value;
+	var correctNum = Math.floor(Math.random() * 11);
+	if(cells >= 10){
+		cells = Math.floor(cells * 0.9);
+		if (userGuess == correctNum){
+			cells = cells * 2;
+			document.getElementById('guessStatus').innerHTML = "Win! Cells doubled."
+		}
+		else{
+			document.getElementById('guessStatus').innerHTML = "Lost! 10% of cells gone."
+		}
+	}
+	else{
+		document.getElementById('guessStatus').innerHTML = "You need 10 or more cells."
+
+	}
+	
+	
+}
+
+
+
 
 window.setInterval(function(){
 	infectClick(building_flies);
