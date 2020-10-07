@@ -1,3 +1,3 @@
 Coronamental
 A mini project of mine to create an incremental game.
-Play here: https://up937100.github.io/Coronamental/
+<a href="https://up937100.github.io/Coronamental/" target="_blank">Play Here</a>
