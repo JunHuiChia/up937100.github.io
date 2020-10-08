@@ -3,32 +3,29 @@
 <head>  
 	<link rel="stylesheet" type="text/css" href="interface.css" /> 
 	<title> Coronamental </title> 
-	<style id="colour_theme"> 
-	.bgc{background-color: black;}.tc{color: gray;}  
-	</style> 
 </head> 
 <body class="bgc tc">  
 	<header> 
 	<h1> Coronamental Game </h1> 
 	</header> 
 	 
-	<div>  
+	<div class="resources">  
 	<span id="cells"> 
 		<span class="cells_name"> Cells Infected : </span> 
 		<span id="cells_amount">0</span> 
 	</span>  
-	<button id="infectButton" onClick="infectClick(upgrade_click)"> Infect </button> 
+	<button class = "button" onClick="infectClick(upgrade_click)"> Infect </button> 
 	</div> 
 	
 	<br>
 	
 	<!--UPGRADES-->
-	<div>  
+	<div class="upgrades">  
 	<span id="upgrade_click">  
 	Click Multiplier: <span id="upgrade_click_amount">1</span><br> 
 	Cost: <span id="upgrade_click_cost">50</span> 
 	</span> 
-	<button onClick="buyUpgradeClick()"> buy </button> 
+	<button class = "button" onClick="buyUpgradeClick()"> buy </button> 
 	</div> 
 	 
 	
@@ -36,32 +33,39 @@
 	
 	
 	<!--BUILDINGS-->
-	<div>  
+	<div class="buildings">  
 	<span id="building_flies">  
-	Flies: <span id="building_flies_amount">0</span><br> 
-	Cost: <span id="building_flies_cost">10</span> 
-	</span> 
-	<button onClick="buyBuildingFlies()"> buy </button> 
-	</div> 
+	Flies: <span id="building_flies_amount">0</span>
 	
-	<br>
-	<div>  
-	<span id="building_hands">  
-	Dirty Hands: <span id="building_hands_amount">0</span><br> 
-	Cost: <span id="building_hands_cost">150</span> 
+	<br> 
+	Cost: <span id="building_flies_cost">10</span> 
+	<button class = "button" onClick="buyBuildingFlies()" > buy </button> 
 	</span> 
-	<button onClick="buyBuildingHands()"> buy </button> 
+	
+	
+	
+	<br><br>
+	  
+	<span class="building_hands">  
+	Dirty Hands: <span id="building_hands_amount">0</span>
+	
+	<br> 
+	Cost: <span id="building_hands_cost">150</span> 
+	<button class = "button" onClick="buyBuildingHands()"> buy </button> 
+	</span> 
+	
 	</div> 
 	
 	<!--Minigames-->
 	<br><br><br><br>
-	<label for="guesser">Guess the number! (Costs 10% of your cells, Win double if correct)</label>
+	<div class="minigames">
+	<label for="guesser">Guess the number! <br>(Costs 10% of your cells, Win double if correct)</label>
 	<br>
 	<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
-	<button onClick="guessNumber()">Guess</button>
+	<button class = "button" onClick="guessNumber()">Guess</button>
 	<span id="guessStatus"></span>
 	 
-	 
+	 </div>
 	 
 	<script type="text/javascript" src="main.js"></script> 
 </body> 
