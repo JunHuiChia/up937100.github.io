@@ -1,5 +1,5 @@
 var cells = 0;
-var building_multiplier = [1,5,25];
+var building_multiplier = [1,10,50];
 var upgrade_cost = [50,250,1000,2500]
 var upgrade_click = 1;
 var upgrade_flies = 1;
@@ -34,39 +34,39 @@ function cpsUpdate(){
 }
 
 function buyUpgradeClick(){
-	var upgrade_click_cost = Math.floor(50 * Math.pow(1.2,upgrade_click-1));
+	var upgrade_click_cost = Math.floor(upgrade_cost[0] * Math.pow(1.2,upgrade_click-1));
 	if (cells >= upgrade_click_cost) {
 		upgrade_click = upgrade_click + 1;
 		cells = cells - upgrade_click_cost;
 		document.getElementById('upgrade_click_amount').innerHTML = upgrade_click;
 		document.getElementById('cells_amount').innerHTML = cells;
 	};
-	var nextCost = Math.floor(50 * Math.pow(1.2,upgrade_click-1));
+	var nextCost = Math.floor(upgrade_cost[0] * Math.pow(1.2,upgrade_click-1));
 	document.getElementById('upgrade_click_cost').innerHTML = nextCost;
 	//document.getElementById('infectButton').setAttribute('onclick','infectClick(upgrade_click)');
 };
 
 function buyUpgradeFlies(){
-	var upgrade_flies_cost = Math.floor(500 * Math.pow(1.3,upgrade_click-1));
+	var upgrade_flies_cost = Math.floor(upgrade_cost[1] * Math.pow(1.3,upgrade_click-1));
 	if (cells >= upgrade_flies_cost) {
 		upgrade_flies = upgrade_flies + 1;
 		cells = cells - upgrade_flies_cost;
 		document.getElementById('upgrade_flies_amount').innerHTML = upgrade_flies;
 		document.getElementById('cells_amount').innerHTML = cells;
 	};
-	var nextCost = Math.floor(500 * Math.pow(1.3,upgrade_flies-1));
+	var nextCost = Math.floor(upgrade_cost[1] * Math.pow(1.3,upgrade_flies-1));
 	document.getElementById('upgrade_flies_cost').innerHTML = nextCost;
 }
 
 function buyUpgradeHands(){
-	var upgrade_hands_cost = Math.floor(2500 * Math.pow(1.3,upgrade_hands-1));
+	var upgrade_hands_cost = Math.floor(upgrade_cost[2] * Math.pow(1.3,upgrade_hands-1));
 	if (cells >= upgrade_hands_cost) {
 		upgrade_hands = upgrade_hands + 1;
 		cells = cells - upgrade_hands_cost;
 		document.getElementById('upgrade_hands_amount').innerHTML = upgrade_hands;
 		document.getElementById('cells_amount').innerHTML = cells;
 	};
-	var nextCost = Math.floor(2500 * Math.pow(1.3,upgrade_hands-1));
+	var nextCost = Math.floor(upgrade_cost[2] * Math.pow(1.3,upgrade_hands-1));
 	document.getElementById('upgrade_hands_cost').innerHTML = nextCost;
 }
 
