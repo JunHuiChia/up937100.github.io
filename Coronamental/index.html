@@ -12,7 +12,7 @@
 	<!--Resources-->
 	<div class="resources">
 		<span id="cells">
-			<span class="cells_name"> Cells Infected : </span>
+			<span class="cells_name"> Cells : </span>
 			<span id="cells_amount">0</span>
 			<button class = "button" onClick="infectClick(upgrade_click)"> Infect </button>
 		</span>
@@ -26,10 +26,36 @@
 	<!--UPGRADES-->
 	<div class="upgrades">
 		<span id="upgrade_click">
-		<button class = "button" onClick="buyUpgradeClick()"> buy </button>
-		Click Multiplier: <span id="upgrade_click_amount">1</span><br>
-		Cost: <span id="upgrade_click_cost">50</span>
+			<button class = "button" onClick="buyUpgradeClick()"> buy </button>
+			Click Multiplier: <span id="upgrade_click_amount">1</span><br>
+			Cost: <span id="upgrade_click_cost">50</span>
 		</span>
+
+		<br><br>
+
+		<span id="upgrade_flies">
+			<button class = "button" onClick="buyUpgradeFlies()"> buy </button>
+			Flies Level:  <span id="upgrade_flies_amount">1</span>
+			<br>
+			Cost: <span id="upgrade_flies_cost">250</span>
+		</span>
+
+		<br><br>
+		<span id="upgrade_hands">
+			<button class = "button" onClick="buyUpgradeHands()"> buy </button>
+			Dirty Hands Level:  <span id="upgrade_hands_amount">1</span>
+			<br>
+			Cost: <span id="upgrade_hands_cost">1000</span>
+		</span>
+
+		<br><br>
+		<span id="upgrade_mask">
+			<button class = "button" onClick="buyUpgradeMask()"> buy </button>
+			Maskless Level:  <span id="upgrade_mask_amount">1</span>
+			<br>
+			Cost: <span id="upgrade_mask_cost">2500</span>
+		</span>
+
 	</div>
 
 
@@ -44,8 +70,9 @@
 			<br>
 			Cost: <span id="building_flies_cost">10</span>
 			<br>
-			Level: <span id="building_flies_level">0</span>
+			<span id="building_flies_cps">0</span> CPS
 		</span>
+
 
 		<br><br>
 
@@ -55,18 +82,18 @@
 			<br>
 			Cost: <span id="building_hands_cost">150</span>
 			<br>
-			Level: <span id="building_flies_level">0</span>
+			<span id="building_hands_cps">0</span> CPS
 		</span>
 
 		<br><br>
 
 		<span class="building_mask">
-			Maskless: <span id="buidling_mask_amount">0</span>
-			<button class ="button" onClick="buildBuildingMask()"> buy </button>
+			Maskless: <span id="building_mask_amount">0</span>
+			<button class ="button" onClick="buyBuildingMask()"> buy </button>
 			<br>
-			Cost: <span id="buidling_mask_cost">1000</span>
+			Cost: <span id="building_mask_cost">1000</span>
 			<br>
-			Level: <span id="building_flies_level">0</span>
+			<span id="building_mask_cps">0</span> CPS
 		</span>
 
 	</div>
@@ -79,6 +106,11 @@
 		<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
 		<button class = "guessButton" onClick="guessNumber()">Guess</button>
 		<span id="guessStatus"></span>
+	 </div>
+
+	 <!--CHEAT-->
+	 <div class="cheat">
+		 <button class="cheatButton" onClick="cheat()">Cheat Button</button>
 	 </div>
 
 	<script type="text/javascript" src="main.js"></script>

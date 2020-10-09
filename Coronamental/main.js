@@ -1,6 +1,10 @@
 var cells = 0;
 var building_multiplier = [1,5,25];
+var upgrade_cost = [50,250,1000,2500]
 var upgrade_click = 1;
+var upgrade_flies = 1;
+var upgrade_hands = 1;
+var upgrade_mask = 1;
 var building_flies = 0;
 var building_hands = 0;
 var building_mask = 0;
@@ -13,23 +17,70 @@ function infectClick(number){
 
 function cellsPerSecond(){
 	var cps = 0;
-	cps = cps + building_flies*building_multiplier[0] + building_hands*building_multiplier[1] + building_mask*building_multiplier[2];
+	cps = cps + (building_flies*building_multiplier[0]*upgrade_flies) + (building_hands*building_multiplier[1]*upgrade_hands) + (building_mask*building_multiplier[2]*upgrade_mask);
 	document.getElementById('cps').innerHTML = cps;
 };
 
+function cpsUpdate(){
+	var building_flies_cps = 0;
+	var building_hands_cps = 0;
+	var building_mask_cps = 0;
+	building_flies_cps = building_flies*building_multiplier[0]*upgrade_flies;
+	building_hands_cps = building_hands*building_multiplier[1]*upgrade_hands;
+	building_mask_cps = building_mask*building_multiplier[2]*upgrade_mask;
+	document.getElementById('building_flies_cps').innerHTML = building_flies_cps;
+	document.getElementById('building_hands_cps').innerHTML = building_hands_cps;
+	document.getElementById('building_mask_cps').innerHTML = building_mask_cps;
+}
+
 function buyUpgradeClick(){
-	var upgrade_click_cost = Math.floor(50 * Math.pow(1.75,upgrade_click-1));
+	var upgrade_click_cost = Math.floor(50 * Math.pow(1.2,upgrade_click-1));
 	if (cells >= upgrade_click_cost) {
 		upgrade_click = upgrade_click + 1;
 		cells = cells - upgrade_click_cost;
 		document.getElementById('upgrade_click_amount').innerHTML = upgrade_click;
 		document.getElementById('cells_amount').innerHTML = cells;
 	};
-	var nextCost = Math.floor(50 * Math.pow(1.75,upgrade_click-1));
+	var nextCost = Math.floor(50 * Math.pow(1.2,upgrade_click-1));
 	document.getElementById('upgrade_click_cost').innerHTML = nextCost;
 	//document.getElementById('infectButton').setAttribute('onclick','infectClick(upgrade_click)');
-
 };
+
+function buyUpgradeFlies(){
+	var upgrade_flies_cost = Math.floor(500 * Math.pow(1.3,upgrade_click-1));
+	if (cells >= upgrade_flies_cost) {
+		upgrade_flies = upgrade_flies + 1;
+		cells = cells - upgrade_flies_cost;
+		document.getElementById('upgrade_flies_amount').innerHTML = upgrade_flies;
+		document.getElementById('cells_amount').innerHTML = cells;
+	};
+	var nextCost = Math.floor(500 * Math.pow(1.3,upgrade_flies-1));
+	document.getElementById('upgrade_flies_cost').innerHTML = nextCost;
+}
+
+function buyUpgradeHands(){
+	var upgrade_hands_cost = Math.floor(2500 * Math.pow(1.3,upgrade_hands-1));
+	if (cells >= upgrade_hands_cost) {
+		upgrade_hands = upgrade_hands + 1;
+		cells = cells - upgrade_hands_cost;
+		document.getElementById('upgrade_hands_amount').innerHTML = upgrade_hands;
+		document.getElementById('cells_amount').innerHTML = cells;
+	};
+	var nextCost = Math.floor(2500 * Math.pow(1.3,upgrade_hands-1));
+	document.getElementById('upgrade_hands_cost').innerHTML = nextCost;
+}
+
+function buyUpgradeMask(){
+	var upgrade_mask_cost = Math.floor(5000 * Math.pow(1.3,upgrade_mask-1));
+	if (cells >= upgrade_mask_cost) {
+		upgrade_mask = upgrade_mask + 1;
+		cells = cells - upgrade_mask_cost;
+		document.getElementById('upgrade_mask_amount').innerHTML = upgrade_mask;
+		document.getElementById('cells_amount').innerHTML = cells;
+	};
+	var nextCost = Math.floor(5000 * Math.pow(1.3,upgrade_mask-1));
+	document.getElementById('upgrade_mask_cost').innerHTML = nextCost;
+}
 
 function buyBuildingFlies(){
 	var building_flies_cost = Math.floor(10 * Math.pow(1.1,building_flies));   //cost of this fly building
@@ -87,10 +138,14 @@ function guessNumber(){
 
 
 
+function cheat(){
+	cells = 500000;
+}
 
 window.setInterval(function(){
-	infectClick(building_flies*building_multiplier[0]);
-	infectClick(building_hands*building_multiplier[1]);
-	infectClick(building_mask*building_multiplier[2]);
+	infectClick(building_flies*building_multiplier[0]*upgrade_flies);
+	infectClick(building_hands*building_multiplier[1]*upgrade_hands);
+	infectClick(building_mask*building_multiplier[2]*upgrade_mask);
 	cellsPerSecond();
+	cpsUpdate()
 }, 1000);
