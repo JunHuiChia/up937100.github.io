@@ -55,7 +55,8 @@ function buyUpgradeFlies(){
 		document.getElementById('upgrade_flies_amount').innerHTML = upgrade_flies;
 		document.getElementById('cells_amount').innerHTML = cells;
 	};
-	var nextCost = Math.floor(upgrade_cost[1] * Math.pow(1.3,upgrade_flies-1));
+
+	var nextCost = Math.floor(250 * Math.pow(1.3,upgrade_flies-1));
 	document.getElementById('upgrade_flies_cost').innerHTML = nextCost;
 }
 
@@ -67,7 +68,7 @@ function buyUpgradeHands(){
 		document.getElementById('upgrade_hands_amount').innerHTML = upgrade_hands;
 		document.getElementById('cells_amount').innerHTML = cells;
 	};
-	var nextCost = Math.floor(upgrade_cost[2] * Math.pow(1.3,upgrade_hands-1));
+	var nextCost = Math.floor(1000 * Math.pow(1.3,upgrade_hands-1));
 	document.getElementById('upgrade_hands_cost').innerHTML = nextCost;
 }
 
@@ -79,7 +80,7 @@ function buyUpgradeMask(){
 		document.getElementById('upgrade_mask_amount').innerHTML = upgrade_mask;
 		document.getElementById('cells_amount').innerHTML = cells;
 	};
-	var nextCost = Math.floor(5000 * Math.pow(1.3,upgrade_mask-1));
+	var nextCost = Math.floor(2500 * Math.pow(1.3,upgrade_mask-1));
 	document.getElementById('upgrade_mask_cost').innerHTML = nextCost;
 }
 
