@@ -1,72 +1,86 @@
-<!DOCTYPE HTML> 
-<html> 
-<head>  
-	<link rel="stylesheet" type="text/css" href="interface.css" /> 
-	<title> Coronamental </title> 
-</head> 
-<body class="bgc tc">  
-	<header> 
-	<h1> Coronamental Game </h1> 
-	</header> 
-	 
-	<div class="resources">  
-	<span id="cells"> 
-		<span class="cells_name"> Cells Infected : </span> 
-		<span id="cells_amount">0</span> 
-	</span>  
-	<button class = "button" onClick="infectClick(upgrade_click)"> Infect </button> 
-	</div> 
-	
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="interface.css" />
+	<title> Coronamental </title>
+</head>
+<body class="bgc tc">
+	<header>
+		<h1> Coronamental Game </h1>
+	</header>
+
+	<!--Resources-->
+	<div class="resources">
+		<span id="cells">
+			<span class="cells_name"> Cells Infected : </span>
+			<span id="cells_amount">0</span>
+			<button class = "button" onClick="infectClick(upgrade_click)"> Infect </button>
+		</span>
+		<br>
+		<span id='cps'>0</span>
+		<span> CPS </span>
+	</div>
+
 	<br>
-	
+
 	<!--UPGRADES-->
-	<div class="upgrades">  
-	<span id="upgrade_click">  
-	Click Multiplier: <span id="upgrade_click_amount">1</span><br> 
-	Cost: <span id="upgrade_click_cost">50</span> 
-	</span> 
-	<button class = "button" onClick="buyUpgradeClick()"> buy </button> 
-	</div> 
-	 
-	
+	<div class="upgrades">
+		<span id="upgrade_click">
+		<button class = "button" onClick="buyUpgradeClick()"> buy </button>
+		Click Multiplier: <span id="upgrade_click_amount">1</span><br>
+		Cost: <span id="upgrade_click_cost">50</span>
+		</span>
+	</div>
+
+
 	<br><br><br> <!--needs changing when using css-->
-	
-	
+
+
 	<!--BUILDINGS-->
-	<div class="buildings">  
-	<span id="building_flies">  
-	Flies: <span id="building_flies_amount">0</span>
-	
-	<br> 
-	Cost: <span id="building_flies_cost">10</span> 
-	<button class = "button" onClick="buyBuildingFlies()" > buy </button> 
-	</span> 
-	
-	
-	
-	<br><br>
-	  
-	<span class="building_hands">  
-	Dirty Hands: <span id="building_hands_amount">0</span>
-	
-	<br> 
-	Cost: <span id="building_hands_cost">150</span> 
-	<button class = "button" onClick="buyBuildingHands()"> buy </button> 
-	</span> 
-	
-	</div> 
-	
+	<div class="buildings">
+		<span id="building_flies">
+			Flies: <span id="building_flies_amount">0</span>
+			<button class = "button" onClick="buyBuildingFlies()" > buy </button>
+			<br>
+			Cost: <span id="building_flies_cost">10</span>
+			<br>
+			Level: <span id="building_flies_level">0</span>
+		</span>
+
+		<br><br>
+
+		<span class="building_hands">
+			Dirty Hands: <span id="building_hands_amount">0</span>
+			<button class = "button" onClick="buyBuildingHands()"> buy </button>
+			<br>
+			Cost: <span id="building_hands_cost">150</span>
+			<br>
+			Level: <span id="building_flies_level">0</span>
+		</span>
+
+		<br><br>
+
+		<span class="building_mask">
+			Maskless: <span id="buidling_mask_amount">0</span>
+			<button class ="button" onClick="buildBuildingMask()"> buy </button>
+			<br>
+			Cost: <span id="buidling_mask_cost">1000</span>
+			<br>
+			Level: <span id="building_flies_level">0</span>
+		</span>
+
+	</div>
+
 	<!--Minigames-->
 	<br><br><br><br>
 	<div class="minigames">
-	<label for="guesser">Guess the number! <br>(Costs 10% of your cells, Win double if correct)</label>
-	<br>
-	<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
-	<button class = "button" onClick="guessNumber()">Guess</button>
-	<span id="guessStatus"></span>
-	 
+		<label for="guesser">Guess the number! <br>(Costs 10% of your cells, Win double if correct)</label>
+		<br>
+		<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
+		<button class = "guessButton" onClick="guessNumber()">Guess</button>
+		<span id="guessStatus"></span>
 	 </div>
-	 
-	<script type="text/javascript" src="main.js"></script> 
-</body> 
+
+	<script type="text/javascript" src="main.js"></script>
+</body>
 </html>

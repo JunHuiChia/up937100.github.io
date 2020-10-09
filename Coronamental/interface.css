@@ -1,20 +1,26 @@
-
+body{
+	display: grid;
+	grid-template-columns: repeat(1, 20em);
+	grid-template-rows: repeat(4, 7em);
+	grid-gap: 1rem;
+}
 
 .bgc{
 	background-color: black;
 	}
 .tc{
 	color: white;
-	}  
-	
+	}
+
 .resources{
 	grid-column-start: 1;
 	grid-colum-end: 2;
 	grid-row-start: 2;
 	grid-row-end: 3;
 	font-size: 1.5em;
+	width: 80%;
 }
-	
+
 .buildings{
 	color: orange;
 	grid-column-start: 1;
@@ -22,6 +28,7 @@
 	grid-row-start: 3;
 	grid-row-end: 4;
 	font-size: 1.5em;
+	width: 80%;
 }
 
 .buildingButton{
@@ -36,6 +43,7 @@
 	grid-row-end: 3;
 	color: gray;
 	font-size: 1.5em;
+	width: 80%;
 }
 
 .minigames{
@@ -53,8 +61,15 @@
 }
 
 .button{
+	height: 4em;
+	width: 4em;
+	float: right;
+}
+
+.guessButton{
 	height: 2.5em;
 	width: 4em;
+
 }
 /*Buttons
 
@@ -69,10 +84,3 @@
 }
 
 */
-
-body{
-	display: grid;
-	grid-template-columns: repeat(4, 20em);
-	grid-template-rows: repeat(4, 6em);
-	grid-gap: 1rem;
-}
