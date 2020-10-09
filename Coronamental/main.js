@@ -8,6 +8,7 @@ var upgrade_mask = 1;
 var building_flies = 0;
 var building_hands = 0;
 var building_mask = 0;
+var cells_to_gamble = 0;
 
 
 function infectClick(number){
@@ -136,6 +137,43 @@ function guessNumber(){
 	}
 }
 
+function allOrNothingSlider(){
+	var cell_amount = document.getElementById("sliderAllOrNothing");
+	var output_amount = document.getElementById("allOrNothingPercent");
+	var cells_to_gamble_1 = 0;
+	cells_to_gamble_1 = cells_to_gamble;
+	cells_to_gamble_1 = Math.floor(cells_to_gamble_1 +(cells/10)*(cell_amount.value));
+	document.getElementById("allOrNothingValue").innerHTML = cells_to_gamble_1;
+}
+
+function allOrNothing(){
+
+	var cells_to_gamble_1 = 0;
+	cells_to_gamble_1 = cells_to_gamble;
+	cells_to_gamble_1 = Math.floor(cells_to_gamble_1 +(cells/10)*(document.getElementById("sliderAllOrNothing").value));
+	var win_lost = getRandomIntInclusive(1, 2);
+	var win_lost_2 = getRandomIntInclusive(1, 2);
+	if(cells >= 1){
+		if(win_lost == win_lost_2){
+			cells = cells + cells_to_gamble_1;
+			document.getElementById("allOrNothingStatus").innerHTML = "WIN!!!";
+		}
+		else{
+			cells = cells - cells_to_gamble_1;
+			document.getElementById("allOrNothingStatus").innerHTML = "You suck and lost";
+		}
+	}
+	else{
+		document.getElementById("allOrNothingStatus").innerHTML = "Not enough cells!";
+	}
+}
+
+function getRandomIntInclusive(min, max) {
+  var min = Math.ceil(min);
+  var max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+}
+
 
 
 function cheat(){
@@ -148,4 +186,9 @@ window.setInterval(function(){
 	infectClick(building_mask*building_multiplier[2]*upgrade_mask);
 	cellsPerSecond();
 	cpsUpdate()
+
 }, 1000);
+
+window.setInterval(function(){
+	allOrNothingSlider()
+}, 100);

@@ -17,8 +17,9 @@
 			<button class = "button" onClick="infectClick(upgrade_click)"> Infect </button>
 		</span>
 		<br>
+		Total
 		<span id='cps'>0</span>
-		<span> CPS </span>
+		CPS
 	</div>
 
 	<br>
@@ -101,13 +102,28 @@
 	<!--Minigames-->
 	<br><br><br><br>
 	<div class="minigames">
-		<label for="guesser">Guess the number! <br>(Costs 10% of your cells, Win double if correct)</label>
-		<br>
-		<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
-		<button class = "guessButton" onClick="guessNumber()">Guess</button>
-		<span id="guessStatus"></span>
-	 </div>
+		<div class="minigameNumberGuesser">
+			<label for="guesser">Guess the number! <br>(Costs 10% of your cells, Win double if correct)</label>
+			<br>
+			<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
+			<button class = "guessButton" onClick="guessNumber()">Guess</button>
+			<span id="guessStatus"></span>
+		</div>
+		<br><br>
+		<div class="minigameAllOrNothing">
+			<label for="allOrNothing"><strong>50/50 Doubler</strong></label>
+			<br>
+			<input type="range" min="0" max="10" value="5" id="sliderAllOrNothing">
+			<span id="allOrNothingValue"></span> Cells
+			<br>
+			<button id="allOrNothingButton" onClick="allOrNothing()">Gamble</button>
+			<span id="allOrNothingStatus"></span>
 
+
+
+
+	 </div>
+ 	</div>
 	 <!--CHEAT-->
 	 <div class="cheat">
 		 <button class="cheatButton" onClick="cheat()">Cheat Button</button>

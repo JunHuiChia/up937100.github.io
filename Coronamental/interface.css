@@ -19,7 +19,9 @@ body{
 	grid-row-end: 3;
 	font-size: 1.5em;
 	width: 90%;
-
+	border-color: white;
+	border-width: medium;
+	border-style: solid;
 }
 
 .buildings{
@@ -83,6 +85,10 @@ body{
 
 }
 
+#allOrNothingButton{
+	height: 2em;
+	width: 10em;
+}
 
 /*Buttons
 
