@@ -5,13 +5,11 @@
 	<title> Coronamental </title>
 </head>
 <body class="bgc tc">
-	<header>
-		<h1> Coronamental Game </h1>
-	</header>
+
 
 	<!--Resources-->
 	<div class="resources">
-		<span id="cells">
+		<span class="cells">
 			<span class="cells_name"> Cells : </span>
 			<span id="cells_amount">0</span>
 			<button class = "button" onClick="infectClick(upgrade_click)"> Infect </button>
@@ -22,11 +20,71 @@
 		CPS
 	</div>
 
-	<br>
+	<!--BUILDINGS-->
+	<div id="buildingsContainer">
+		<span class="building_sections">
+			<button class="btn building_1 active" onClick="buildingMenu(event,'buildings1')">Items 1</button>
+			<button class="btn building_2" onClick="buildingMenu(event,'buildings2')">Items 2</button>
+			<button class="btn building_3" onClick="buildingMenu(event,'buildings3')">Items 3</button>
+		</span>
+
+	
+
+		<div id="buildings1Container" style="visibility: visible;">
+			<div class="building_flies">
+				<div class="building_desc">
+					<span id="building_flies_name">Flies: </span> 
+					<span id="building_flies_amount">0</span>
+					<br>
+					<span id="building_flies_cost_name">Cost: </span>
+					<span id="building_flies_cost">10</span>
+				</div>	
+				<div id="building_flies_cps">
+					<span id="building_flies_cps_num">0</span> 
+					<span id="building_flies_cps_name">CPS</span>
+				</div>
+				<button class = "button" onClick="buyBuildingFlies()" > buy </button>
+			</div>
+			<div class="building_hands">
+				<div class="building_desc">
+					<span id="building_hands_name">Dirty Hands: </span> 
+					<span id="building_hands_amount">0</span>
+					<br>
+					<span id="building_hands_cost_name">Cost: </span>
+					<span id="building_hands_cost">150</span>
+				</div>	
+				<div id="building_hands_cps">
+					<span id="building_hands_cps_num">0</span> 
+					<span id="building_hands_cps_name">CPS</span>
+				</div>
+				<button class = "button" onClick="buyBuildingHands()"> buy </button>
+			</div>
+			<div class="building_mask">
+				<div class="building_desc">
+					<span id="building_mask_name">Maskless: </span> 
+					<span id="building_mask_amount">0</span>
+					<br>
+					<span id="building_mask_cost_name">Cost: </span>
+					<span id="building_mask_cost">1000</span>
+				</div>	
+				<div id="building_mask_cps">
+					<span id="building_mask_cps_num">0</span> 
+					<span id="building_mask_cps_name">CPS</span>
+				</div>
+				<button class ="button" onClick="buyBuildingMask()"> buy </button>
+			</div>
+		</div>
+		<div id="buildings2Container" style="visibility: hidden;">
+			<span id="placeholder">placeholder</span>
+		</div>
+		<div id="buildings3Container" style="visibility: hidden;">
+			<span id="placeholder2">placeholder2</span>
+		</div>
+	</div>
 
 	<!--UPGRADES-->
 	<div class="upgrades">
-		<span id="upgrade_click">
+		<span class="upgrade_click">
 			<button class = "button" onClick="buyUpgradeClick()"> buy </button>
 			Click Multiplier: <span id="upgrade_click_amount">1</span><br>
 			Cost: <span id="upgrade_click_cost">50</span>
@@ -34,7 +92,7 @@
 
 		<br><br>
 
-		<span id="upgrade_flies">
+		<span class="upgrade_flies">
 			<button class = "button" onClick="buyUpgradeFlies()"> buy </button>
 			Flies Level:  <span id="upgrade_flies_amount">1</span>
 			<br>
@@ -42,15 +100,15 @@
 		</span>
 
 		<br><br>
-		<span id="upgrade_hands">
+		<span class="upgrade_hands">
 			<button class = "button" onClick="buyUpgradeHands()"> buy </button>
 			Dirty Hands Level:  <span id="upgrade_hands_amount">1</span>
 			<br>
-			Cost: <span id="upgrade_hands_cost">1000</span>
+			Cost: <span id="upgrade_hands_cost">1500</span>
 		</span>
 
 		<br><br>
-		<span id="upgrade_mask">
+		<span class="upgrade_mask">
 			<button class = "button" onClick="buyUpgradeMask()"> buy </button>
 			Maskless Level:  <span id="upgrade_mask_amount">1</span>
 			<br>
@@ -59,57 +117,18 @@
 
 	</div>
 
-
-	<br><br><br> <!--needs changing when using css-->
-
-
-	<!--BUILDINGS-->
-	<div class="buildings">
-		<span id="building_flies">
-			Flies: <span id="building_flies_amount">0</span>
-			<button class = "button" onClick="buyBuildingFlies()" > buy </button>
-			<br>
-			Cost: <span id="building_flies_cost">10</span>
-			<br>
-			<span id="building_flies_cps">0</span> CPS
-		</span>
-
-
-		<br><br>
-
-		<span class="building_hands">
-			Dirty Hands: <span id="building_hands_amount">0</span>
-			<button class = "button" onClick="buyBuildingHands()"> buy </button>
-			<br>
-			Cost: <span id="building_hands_cost">150</span>
-			<br>
-			<span id="building_hands_cps">0</span> CPS
-		</span>
-
-		<br><br>
-
-		<span class="building_mask">
-			Maskless: <span id="building_mask_amount">0</span>
-			<button class ="button" onClick="buyBuildingMask()"> buy </button>
-			<br>
-			Cost: <span id="building_mask_cost">1000</span>
-			<br>
-			<span id="building_mask_cps">0</span> CPS
-		</span>
-
-	</div>
-
 	<!--Minigames-->
 	<br><br><br><br>
 	<div class="minigames">
 		<div class="minigameNumberGuesser">
-			<label for="guesser">Guess the number! <br>(Costs 10% of your cells, Win double if correct)</label>
+			<label for="guesser">Guess the number!</label>
+
 			<br>
 			<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
 			<button class = "guessButton" onClick="guessNumber()">Guess</button>
 			<span id="guessStatus"></span>
 		</div>
-		<br><br>
+
 		<div class="minigameAllOrNothing">
 			<label for="allOrNothing"><strong>50/50 Doubler</strong></label>
 			<br>

@@ -1,8 +1,11 @@
 body{
 	display: grid;
-	grid-template-columns: repeat(5, 20em);
-	grid-template-rows: repeat(6, 7em);
-	grid-gap: 1rem;
+	grid-template-columns: repeat(3, 33%);
+	grid-template-rows: 20% 80%;
+	grid-gap: 3rem;
+	grid-template-areas:
+	"resources . ."
+	"buildingsContainer upgrades minigames";
 }
 
 .bgc{
@@ -13,81 +16,163 @@ body{
 	}
 
 .resources{
-	grid-column-start: 1;
-	grid-colum-end: 2;
-	grid-row-start: 2;
-	grid-row-end: 3;
-	font-size: 1.5em;
-	width: 90%;
+	grid-area: resources;
+	font-size: 2.5em;
+	width: 100%;
 	border-color: white;
 	border-width: medium;
 	border-style: solid;
+
 }
 
-.buildings{
+#buildingsContainer{
 	color: orange;
-	grid-column-start: 1;
-	grid-colum-end: 2;
-	grid-row-start: 3;
-	grid-row-end: 6;
-	font-size: 1.2em;
-	width: 90%;
+	grid-area: buildingsContainer;
+	font-size: 1.5em;
+	width: 100%;
 	border-color: #de9a76;
 	border-width: medium;
 	border-style: solid;
+	display: grid;
+	grid-template: 10% 90%/ 100%;
+	grid-template-areas: 
+	"building_header"
+	"building_body";
 }
 
-.buildingButton{
-	width: 3em;
-	height: 3em;
+#buildingsContainer .building_sections{
+	grid-area: building_header;
+	display: grid;
+	grid-template-rows: 100%;
+	grid-template-columns: repeat(3, 33.3%);
 }
+
+#buildingsContainer #buildings1Container{
+	grid-area: building_body;
+	display: grid;
+	grid-template: repeat(6, 16.67%)/100%;
+}
+
+#buildings1Container .building_flies{
+	display: grid;
+	grid-template-columns: 40% 26.7% 33.3%;
+}
+
+#buildings1Container .building_hands{
+	display: grid;
+	grid-template-columns: 40% 26.7% 33.3%;
+}
+
+#buildings1Container .building_mask{
+	display: grid;
+	grid-template-columns: 40% 26.7% 33.3%;
+}
+
+.building_flies #building_flies_cps{
+	justify-self: center;
+	align-self: center;
+}
+
+.building_hands #building_hands_cps{
+	justify-self: center;
+	align-self: center;
+}
+
+.building_mask #building_mask_cps{
+	justify-self: center;
+	align-self: center;
+}
+#buildings1Container .button{
+	width: 100%;
+	height: 100%;
+}
+
+.building_sections button{
+	width: 100%;
+}
+
+#buildingsContainer #buildings2Container{
+	grid-area: building_body;
+	display: grid;
+	grid-template: repeat(6, 16.67%)/100%;
+}
+
+#buildings2Container #placeholder{
+	font-size: 3em;
+}
+
+
+#buildingsContainer #buildings3Container{
+	grid-area: building_body;
+	display: grid;
+	grid-template: repeat(6, 16.67%)/100%;
+}
+
 
 .upgrades{
-	grid-column-start: 2;
-	grid-colum-end: 3;
-	grid-row-start: 3;
-	grid-row-end: 6;
-	color: gray;
-	font-size: 1.2em;
-	width: 90%;
-	border-color: gray;
+	grid-area: upgrades;
+	color: #6b94d8;
+	font-size: 2em;
+	width: 100%;
+	border-color: #6b94d8;
 	border-width: medium;
 	border-style: solid;
 }
 
-.upgrades#upgrade_click#upgrade_flies#upgrade_mask#upgrade_hands{
-	height: 2em;
-}
 
 .minigames{
-	grid-column-start: 4;
-	grid-colum-end: 5;
-	grid-row-start: 2;
-	grid-row-end: 3;
+	grid-area: minigames;
 	color: yellow;
-	font-size: 1.5em;
+	font-size: 2em;
+	width: 100%;
+	display: grid;
+	grid-template-rows: 50% 50%;
+	grid-template-columns: 85%;
+}
+
+.minigames .minigameNumberGuesser{
+	border-color: yellow;
+	border-width: medium;
+	border-style: solid;
+}
+
+.minigames .minigameAllOrNothing{
+	border-color: yellow;
+	border-width: medium;
+	border-style: solid;
 }
 
 #userGuess {
-	height: 2em;
-	width: 4em;
-}
-
-.button{
-	height: 4em;
-	width: 4em;
-	float: right;
+	height: 3rem;
+	width: 8rem;
+	font-size: 1rem;
 }
 
 .guessButton{
-	height: 2.5em;
-	width: 4em;
+	height: 3rem;
+	width: 5em;
 
 }
 
+.button{
+	border: none;
+	outline: none;
+	height: 4rem;
+	width: 4rem;
+	float: right;
+}
+
+.active, .button:hover{
+	background-color: grey;
+	color: white;
+	outline: grey;
+}
+
+
+
 #allOrNothingButton{
-	height: 2em;
-	width: 10em;
+	height: 2rem;
+	width: 10rem;
 }
 
 /*Buttons
@@ -105,6 +190,5 @@ body{
 */
 
 .cheat{
-	grid-column-start: 4;
-	grid-row-start: 6;
+	grid-area: resources;
 }
