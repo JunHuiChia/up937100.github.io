@@ -1,11 +1,12 @@
 body{
 	display: grid;
+	height: 30em;
 	grid-template-columns: repeat(3, 33%);
 	grid-template-rows: 20% 80%;
 	grid-gap: 3rem;
 	grid-template-areas:
-	"resources . ."
-	"buildingsContainer upgrades minigames";
+	"resources prestige cheat"
+	"buildingsContainer upgradesContainer minigamesContainer";
 }
 
 .bgc{
@@ -22,8 +23,25 @@ body{
 	border-color: white;
 	border-width: medium;
 	border-style: solid;
-
+	display: grid;
+	grid-template: 100%/repeat(3, 33.3%);
 }
+
+.resources button{
+	width: auto;
+	height: auto;
+}
+
+.resources .cells{
+	align-self: center;
+	justify-self: center;
+}
+
+.resources .cps_total{
+	align-self: center;
+	justify-self: center;
+}
+
 
 #buildingsContainer{
 	color: orange;
@@ -50,7 +68,7 @@ body{
 #buildingsContainer #buildings1Container{
 	grid-area: building_body;
 	display: grid;
-	grid-template: repeat(6, 16.67%)/100%;
+	grid-template: repeat(5, 20%)/100%;
 }
 
 #buildings1Container .building_flies{
@@ -91,10 +109,12 @@ body{
 	width: 100%;
 }
 
+
+/* Buildings 2 */
 #buildingsContainer #buildings2Container{
 	grid-area: building_body;
 	display: grid;
-	grid-template: repeat(6, 16.67%)/100%;
+	grid-template: repeat(5, 20%)/100%;
 }
 
 #buildings2Container #placeholder{
@@ -102,26 +122,91 @@ body{
 }
 
 
+/* Buildings 3 */
 #buildingsContainer #buildings3Container{
 	grid-area: building_body;
 	display: grid;
-	grid-template: repeat(6, 16.67%)/100%;
+	grid-template: repeat(5, 20%)/100%;
 }
 
 
-.upgrades{
-	grid-area: upgrades;
+
+
+
+
+#upgradesContainer{
+	grid-area: upgradesContainer;
 	color: #6b94d8;
-	font-size: 2em;
+	font-size: 1.5em;
 	width: 100%;
 	border-color: #6b94d8;
 	border-width: medium;
 	border-style: solid;
+	display: grid;
+	grid-template: 10% 90%/ 100%;
+	grid-template-areas: 
+	"upgrades_header"
+	"upgrades_body";
+}
+
+#upgradesContainer .upgrades_sections{
+	grid-area: upgrades_header;
+	display: grid;
+	grid-template-rows: 100%;
+	grid-template-columns: repeat(3, 33.3%);
+}
+
+#upgradesContainer #upgrades1Container{
+	grid-area: upgrades_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
+}
+
+#upgrades1Container .upgrade_click{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .upgrade_flies{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .upgrade_hands{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .upgrade_mask{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .button{
+	width: 100%;
+	height: 100%;
+}
+
+.upgrades_sections button{
+	width: 100%;
+}
+
+#upgradesContainer #upgrades2Container{
+	grid-area: upgrades_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
+}
+
+#upgradesContainer #upgrades3Container{
+	grid-area: upgrades_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
 }
 
 
+
 .minigames{
-	grid-area: minigames;
+	grid-area: minigamesContainer;
 	color: yellow;
 	font-size: 2em;
 	width: 100%;
@@ -168,6 +253,12 @@ body{
 	outline: grey;
 }
 
+.active2, .button:hover{
+	background-color: grey;
+	color: white;
+	outline: grey;
+}
+
 
 
 #allOrNothingButton{
@@ -190,5 +281,5 @@ body{
 */
 
 .cheat{
-	grid-area: resources;
+	grid-area: cheat;
 }

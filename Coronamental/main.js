@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var cells = 0;
 var building_multiplier = [1,10,50];
 var building_cost = [10,500,2500,10000];
@@ -191,7 +192,7 @@ function getRandomIntInclusive(min, max) {
 
 function buildingMenu(evt, what){
 	var tabs = ["buildings1","buildings2","buildings3"];
-	var btns = document.querySelectorAll(".btn");
+	var btns = document.querySelectorAll(".bBtn");
 
 	Array.from(btns).forEach(item => {
 		item.addEventListener("click", () => {
@@ -201,17 +202,33 @@ function buildingMenu(evt, what){
 		});
 	});
 
+	for(var i = 0; i < tabs.length; i++){
+		tab = tabs[i];
+		document.getElementById(tab+"Container").style.visibility = 'hidden';
+		document.getElementById(what+"Container").style.visibility = 'visible';
+		}
+
+}
+
+function upgradeMenu(evt, what){
+	var tabs = ["upgrades1","upgrades2","upgrades3"];
+	var btns1 = document.querySelectorAll(".uBtn");
+
+	Array.from(btns1).forEach(item => {
+		item.addEventListener("click", () => {
+			var current1 = document.getElementsByClassName("active2");
+			current1[0].className = current1[0].className.replace(" active2", "");
+			item.className += " active2";
+		});
+	});
 
 	for(var i = 0; i < tabs.length; i++){
 		tab = tabs[i];
 		document.getElementById(tab+"Container").style.visibility = 'hidden';
 		document.getElementById(what+"Container").style.visibility = 'visible';
-
-
 		}
 
 }
-
 
 
 
