@@ -267,6 +267,7 @@ window.setInterval(function(){
 	infectClick(building_flies*building_multiplier[0]*upgrade_flies);
 	infectClick(building_hands*building_multiplier[1]*upgrade_hands);
 	infectClick(building_mask*building_multiplier[2]*upgrade_mask);
+	infectClick(building_kiss*building_multiplier[3]*upgrade_kiss);
 	cellsPerSecond();
 	cpsUpdate();
 
