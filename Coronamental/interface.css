@@ -18,13 +18,14 @@ body{
 
 .resources{
 	grid-area: resources;
-	font-size: 2.5em;
+	font-size: 1.5em;
 	width: 100%;
-	border-color: white;
+	color: #0bc202;
+	border-color: #0bc202;
 	border-width: medium;
 	border-style: solid;
 	display: grid;
-	grid-template: 100%/repeat(3, 33.3%);
+	grid-template: 100%/ 45% 35% 20%;
 }
 
 .resources button{
@@ -33,8 +34,45 @@ body{
 }
 
 .resources .cells{
-	align-self: center;
+	width: 100%;
 	justify-self: center;
+	display: grid;
+	grid-template-rows: 40% 1% 59%;
+}
+.cells #cells_name{
+	justify-self: center;
+	align-self: flex-end;
+
+}
+.cells #cells_amount{
+	justify-self: center;
+}
+
+.resources .cps_total{
+	width: 100%;
+	height: 100%;
+	justify-self: center;
+	display: grid;
+	grid-template-rows: 40% 1% 59%;
+}
+.cps_total #cps_tag{
+	justify-self: center;
+	align-self: flex-end;
+}
+.cps_total #cps{
+	justify-self: center;
+}
+
+
+
+.resources hr{
+    margin-block-start: 0em;
+    margin-block-end: 2em;
+    margin-inline-start: 0em;
+    margin-inline-end: 0em;
+    overflow: visible;
+    border-style: solid;
+    border: 1px solid;
 }
 
 .resources .cps_total{
@@ -75,36 +113,39 @@ body{
 	display: grid;
 	grid-template-columns: 40% 26.7% 33.3%;
 }
-
 #buildings1Container .building_hands{
 	display: grid;
 	grid-template-columns: 40% 26.7% 33.3%;
 }
-
 #buildings1Container .building_mask{
 	display: grid;
 	grid-template-columns: 40% 26.7% 33.3%;
 }
-
+#buildings1Container .building_kiss{
+	display: grid;
+	grid-template-columns: 40% 26.7% 33.3%;
+}
 .building_flies #building_flies_cps{
 	justify-self: center;
 	align-self: center;
 }
-
 .building_hands #building_hands_cps{
 	justify-self: center;
 	align-self: center;
 }
-
 .building_mask #building_mask_cps{
 	justify-self: center;
 	align-self: center;
 }
+.building_kiss #building_kiss_cps{
+	justify-self: center;
+	align-self: center;
+}
+
 #buildings1Container .button{
 	width: 100%;
 	height: 100%;
 }
-
 .building_sections button{
 	width: 100%;
 }
@@ -163,6 +204,7 @@ body{
 }
 
 #upgrades1Container .upgrade_click{
+	color: #0bc202;
 	display: grid;
 	grid-template-columns: 66.6% 33.3%;
 }
@@ -178,6 +220,11 @@ body{
 }
 
 #upgrades1Container .upgrade_mask{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .upgrade_kiss{
 	display: grid;
 	grid-template-columns: 66.6% 33.3%;
 }
@@ -207,7 +254,7 @@ body{
 
 .minigames{
 	grid-area: minigamesContainer;
-	color: yellow;
+	color: #650589;
 	font-size: 2em;
 	width: 100%;
 	display: grid;
@@ -216,13 +263,13 @@ body{
 }
 
 .minigames .minigameNumberGuesser{
-	border-color: yellow;
+	border-color: #650589;
 	border-width: medium;
 	border-style: solid;
 }
 
 .minigames .minigameAllOrNothing{
-	border-color: yellow;
+	border-color: #650589;
 	border-width: medium;
 	border-style: solid;
 }

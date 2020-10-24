@@ -1,15 +1,17 @@
 /*jshint esversion: 6 */
 var cells = 0;
-var building_multiplier = [1,10,50];
-var building_cost = [10,500,2500,10000];
-var upgrade_cost = [50,250,1000,2500];
+var building_multiplier = [1,10,50,];
+var building_cost = [10,500,2500,7500];
+var upgrade_cost = [50,250,1000,2500,10000];
+var building_flies = 0;
+var building_hands = 0;
+var building_mask = 0;
+var building_kiss = 0;
 var upgrade_click = 1;
 var upgrade_flies = 1;
 var upgrade_hands = 1;
 var upgrade_mask = 1;
-var building_flies = 0;
-var building_hands = 0;
-var building_mask = 0;
+var upgrade_kiss = 1;
 var cells_to_gamble = 0;
 
 
@@ -78,6 +80,18 @@ function buyBuildingMask(){
 	document.getElementById('building_mask_cost').innerHTML = nextCost;
 }
 
+function buyBuildingKiss(){
+	var building_kiss_cost = Math.floor(building_cost[3] * Math.pow(1.2,building_kiss));
+	if (cells >= building_kiss_cost){
+		building_kiss = building_kiss + 1;
+		cells = cells - building_kiss_cost;
+		document.getElementById('building_kiss_amount').innerHTML = building_kiss;
+		document.getElementById('cells_amount').innerHTML = cells;
+	}
+	var nextCost = Math.floor(building_cost[3] * Math.pow(1.2,building_kiss));
+	document.getElementById('building_kiss_cost').innerHTML = nextCost;
+}
+
 
 //Upgrades
 function buyUpgradeClick(){
@@ -128,6 +142,20 @@ function buyUpgradeMask(){
 	}
 	var nextCost = Math.floor(upgrade_cost[3] * Math.pow(1.3,upgrade_mask-1));
 	document.getElementById('upgrade_mask_cost').innerHTML = nextCost;
+}
+
+function buyUpgradeKiss(){
+	var upgrade_kiss_cost = Math.floor(upgrade_cost[4] * Math.pow(1.3,upgrade_kiss-1));
+	if (cells >= upgrade_kiss_cost) {
+		upgrade_kiss = upgrade_kiss + 1;
+		cells = cells - upgrade_kiss_cost;
+		document.getElementById('upgrade_kiss_amount').innerHTML = upgrade_kiss;
+		document.getElementById('cells_amount').innerHTML = cells;
+		document.getElementById("upgrade_2").style.visibility = "visible";
+	}
+	var nextCost = Math.floor(upgrade_cost[4] * Math.pow(1.3,upgrade_kiss-1));
+	document.getElementById('upgrade_kiss_cost').innerHTML = nextCost;
+	
 }
 
 
@@ -188,8 +216,6 @@ function getRandomIntInclusive(min, max) {
 }
 
 
-
-
 function buildingMenu(evt, what){
 	var tabs = ["buildings1","buildings2","buildings3"];
 	var btns = document.querySelectorAll(".bBtn");
@@ -209,6 +235,7 @@ function buildingMenu(evt, what){
 		}
 
 }
+
 
 function upgradeMenu(evt, what){
 	var tabs = ["upgrades1","upgrades2","upgrades3"];
