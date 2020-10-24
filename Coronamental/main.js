@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 var cells = 0;
-var building_multiplier = [1,10,50,];
+var building_multiplier = [1,10,50,250];
 var building_cost = [10,500,2500,7500];
 var upgrade_cost = [50,250,1000,2500,10000];
 var building_flies = 0;
