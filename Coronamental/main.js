@@ -33,9 +33,12 @@ function cpsUpdate(){
 	building_flies_cps = building_flies*building_multiplier[0]*upgrade_flies;
 	building_hands_cps = building_hands*building_multiplier[1]*upgrade_hands;
 	building_mask_cps = building_mask*building_multiplier[2]*upgrade_mask;
+	building_kiss_cps = building_kiss*building_multiplier[3]*upgrade_kiss;
 	document.getElementById('building_flies_cps_num').innerHTML = building_flies_cps;
 	document.getElementById('building_hands_cps_num').innerHTML = building_hands_cps;
 	document.getElementById('building_mask_cps_num').innerHTML = building_mask_cps;
+	document.getElementById('building_kiss_cps_num').innerHTML = building_kiss_cps;
+
 }
 
 
