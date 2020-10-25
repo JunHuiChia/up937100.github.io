@@ -170,7 +170,7 @@ function guessNumber(){
 		cells = Math.floor(cells * 0.9);
 		if (userGuess == correctNum){
 			cells = cells * 3;
-			document.getElementById('guessStatus').innerHTML = "Win! Cells doubled.";
+			document.getElementById('guessStatus').innerHTML = "Win! 3x Cells.";
 		}
 		else{
 			document.getElementById('guessStatus').innerHTML = "Lost! 10% of cells gone.";
