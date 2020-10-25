@@ -169,8 +169,8 @@ function guessNumber(){
 	if(cells >= 10){
 		cells = Math.floor(cells * 0.9);
 		if (userGuess == correctNum){
-			cells = cells * 3;
-			document.getElementById('guessStatus').innerHTML = "Win! 3x Cells.";
+			cells = cells * 4;
+			document.getElementById('guessStatus').innerHTML = "Win! 4x Cells.";
 		}
 		else{
 			document.getElementById('guessStatus').innerHTML = "Lost! 10% of cells gone.";
