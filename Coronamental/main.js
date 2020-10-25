@@ -195,10 +195,9 @@ function allOrNothing(){
 	var cells_to_gamble_1 = 0;
 	cells_to_gamble_1 = cells_to_gamble;
 	cells_to_gamble_1 = Math.floor(cells_to_gamble_1 +(cells/10)*(document.getElementById("sliderAllOrNothing").value));
-	var win_lost = getRandomIntInclusive(1, 2);
-	var win_lost_2 = getRandomIntInclusive(1, 2);
-	if(cells >= 1){
-		if(win_lost == win_lost_2){
+	var win_lost = getRandomIntInclusive(0, 1);
+	if(cells > 0){
+		if(win_lost == 1){
 			cells = cells + cells_to_gamble_1;
 			document.getElementById("allOrNothingStatus").innerHTML = "WIN!!!";
 		}
