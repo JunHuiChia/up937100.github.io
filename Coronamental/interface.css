@@ -1,0 +1,332 @@
+body{
+	display: grid;
+	height: 30em;
+	grid-template-columns: repeat(3, 33%);
+	grid-template-rows: 20% 80%;
+	grid-gap: 3rem;
+	grid-template-areas:
+	"resources prestige cheat"
+	"buildingsContainer upgradesContainer minigamesContainer";
+}
+
+.bgc{
+	background: repeating-radial-gradient(black, #19262c 1400px);
+	}
+.tc{
+	color: white;
+	}
+
+.resources{
+	grid-area: resources;
+	font-size: 1.5em;
+	width: 100%;
+	color: #0bc202;
+	border-color: #0bc202;
+	border-width: medium;
+	border-style: solid;
+	display: grid;
+	grid-template: 100%/ 45% 35% 20%;
+}
+
+.resources button{
+	width: auto;
+	height: auto;
+}
+
+.resources .cells{
+	width: 100%;
+	justify-self: center;
+	display: grid;
+	grid-template-rows: 40% 1% 59%;
+}
+.cells #cells_name{
+	justify-self: center;
+	align-self: flex-end;
+
+}
+.cells #cells_amount{
+	justify-self: center;
+}
+
+.resources .cps_total{
+	width: 100%;
+	height: 100%;
+	justify-self: center;
+	display: grid;
+	grid-template-rows: 40% 1% 59%;
+}
+.cps_total #cps_tag{
+	justify-self: center;
+	align-self: flex-end;
+}
+.cps_total #cps{
+	justify-self: center;
+}
+
+
+
+.resources hr{
+    margin-block-start: 0em;
+    margin-block-end: 2em;
+    margin-inline-start: 0em;
+    margin-inline-end: 0em;
+    overflow: visible;
+    border-style: solid;
+    border: 1px solid;
+}
+
+.resources .cps_total{
+	align-self: center;
+	justify-self: center;
+}
+
+
+#buildingsContainer{
+	color: orange;
+	grid-area: buildingsContainer;
+	font-size: 1.5em;
+	width: 100%;
+	border-color: #de9a76;
+	border-width: medium;
+	border-style: solid;
+	display: grid;
+	grid-template: 10% 90%/ 100%;
+	grid-template-areas: 
+	"building_header"
+	"building_body";
+}
+
+#buildingsContainer .building_sections{
+	grid-area: building_header;
+	display: grid;
+	grid-template-rows: 100%;
+	grid-template-columns: repeat(3, 33.3%);
+}
+
+#buildingsContainer #buildings1Container{
+	grid-area: building_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
+}
+
+#buildings1Container .building_flies{
+	display: grid;
+	grid-template-columns: 40% 26.7% 33.3%;
+}
+#buildings1Container .building_hands{
+	display: grid;
+	grid-template-columns: 40% 26.7% 33.3%;
+}
+#buildings1Container .building_mask{
+	display: grid;
+	grid-template-columns: 40% 26.7% 33.3%;
+}
+#buildings1Container .building_kiss{
+	display: grid;
+	grid-template-columns: 40% 26.7% 33.3%;
+}
+.building_flies #building_flies_cps{
+	justify-self: center;
+	align-self: center;
+}
+.building_hands #building_hands_cps{
+	justify-self: center;
+	align-self: center;
+}
+.building_mask #building_mask_cps{
+	justify-self: center;
+	align-self: center;
+}
+.building_kiss #building_kiss_cps{
+	justify-self: center;
+	align-self: center;
+}
+
+#buildings1Container .button{
+	width: 100%;
+	height: 100%;
+}
+.building_sections button{
+	width: 100%;
+}
+
+
+/* Buildings 2 */
+#buildingsContainer #buildings2Container{
+	grid-area: building_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
+}
+
+#buildings2Container #placeholder{
+	font-size: 3em;
+}
+
+
+/* Buildings 3 */
+#buildingsContainer #buildings3Container{
+	grid-area: building_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
+}
+
+
+
+
+
+
+#upgradesContainer{
+	grid-area: upgradesContainer;
+	color: #6b94d8;
+	font-size: 1.5em;
+	width: 100%;
+	border-color: #6b94d8;
+	border-width: medium;
+	border-style: solid;
+	display: grid;
+	grid-template: 10% 90%/ 100%;
+	grid-template-areas: 
+	"upgrades_header"
+	"upgrades_body";
+}
+
+#upgradesContainer .upgrades_sections{
+	grid-area: upgrades_header;
+	display: grid;
+	grid-template-rows: 100%;
+	grid-template-columns: repeat(3, 33.3%);
+}
+
+#upgradesContainer #upgrades1Container{
+	grid-area: upgrades_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
+}
+
+#upgrades1Container .upgrade_click{
+	color: #0bc202;
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .upgrade_flies{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .upgrade_hands{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .upgrade_mask{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .upgrade_kiss{
+	display: grid;
+	grid-template-columns: 66.6% 33.3%;
+}
+
+#upgrades1Container .button{
+	width: 100%;
+	height: 100%;
+}
+
+.upgrades_sections button{
+	width: 100%;
+}
+
+#upgradesContainer #upgrades2Container{
+	grid-area: upgrades_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
+}
+
+#upgradesContainer #upgrades3Container{
+	grid-area: upgrades_body;
+	display: grid;
+	grid-template: repeat(5, 20%)/100%;
+}
+
+
+
+.minigames{
+	grid-area: minigamesContainer;
+	color: #650589;
+	font-size: 2em;
+	width: 100%;
+	display: grid;
+	grid-template-rows: 50% 50%;
+	grid-template-columns: 85%;
+}
+
+.minigames .minigameNumberGuesser{
+	border-color: #650589;
+	border-width: medium;
+	border-style: solid;
+}
+
+.minigames .minigameAllOrNothing{
+	border-color: #650589;
+	border-width: medium;
+	border-style: solid;
+}
+
+#userGuess {
+	height: 3rem;
+	width: 8rem;
+	font-size: 1rem;
+}
+
+.guessButton{
+	height: 3rem;
+	width: 5em;
+
+}
+
+.button{
+	border: none;
+	outline: none;
+	height: 4rem;
+	width: 4rem;
+	float: right;
+}
+
+.active, .button:hover{
+	background-color: grey;
+	color: white;
+	outline: grey;
+}
+
+.active2, .button:hover{
+	background-color: grey;
+	color: white;
+	outline: grey;
+}
+
+
+
+#allOrNothingButton{
+	height: 2rem;
+	width: 10rem;
+}
+
+/*Buttons
+
+
+.guessButton {
+	height: 2.5em;
+	width: 4em;
+}
+
+#infectButton{
+	width: 5em;
+}
+
+*/
+
+.cheat{
+	grid-area: cheat;
+}
