@@ -15,7 +15,7 @@ var items = {
         name: "Flies",
         amount: 0,
         cost: 10,
-        upr_cost: 50,
+        upg_cost: 1,
         level: 1,
         income: 1,
     },
@@ -24,7 +24,7 @@ var items = {
         name: "Dirty Hands",
         amount: 0,
         cost: 200,
-        upr_cost: 50,
+        upg_cost: 6,
         level: 1,
         income: 10,
     },
@@ -33,7 +33,7 @@ var items = {
         name: "Infected Food",
         amount: 0,
         cost: 750,
-        upr_cost: 50,
+        upg_cost: 22,
         level: 1,
         income: 25,
     },
@@ -42,7 +42,7 @@ var items = {
         name: "Air droplets",
         amount: 0,
         cost: 2000,
-        upr_cost: 50,
+        upg_cost: 60,
         level: 1,
         income: 100,
     },
@@ -51,7 +51,7 @@ var items = {
         name: "Infected Person",
         amount: 0,
         cost: 7500,
-        upr_cost: 50,
+        upg_cost: 225,
         level: 1,
         income: 250,
     },
@@ -60,7 +60,7 @@ var items = {
         name: "No Masks",
         amount: 0,
         cost: 20000,
-        upr_cost: 50,
+        upg_cost: 600,
         level: 1,
         income: 500,
     },
@@ -69,7 +69,7 @@ var items = {
         name: "Kisses",
         amount: 0,
         cost: 50000,
-        upr_cost: 50,
+        upg_cost: 1500,
         level: 1,
         income: 1000,
     },
@@ -78,7 +78,7 @@ var items = {
         name: "Transfer of Faecal matter",
         amount: 0,
         cost: 125000,
-        upr_cost: 50,
+        upg_cost: 3750,
         level: 1,
         income: 1750,
     },
@@ -87,7 +87,7 @@ var items = {
         name: "Infected blood transfer",
         amount: 0,
         cost: 300000,
-        upr_cost: 50,
+        upg_cost: 9000,
         level: 1,
         income: 5000,
     },
@@ -96,7 +96,7 @@ var items = {
         name: "Contaminated Water",
         amount: 0,
         cost: 750000,
-        upr_cost: 50,
+        upg_cost: 22500,
         level: 1,
         income: 10000,
     },
@@ -105,7 +105,7 @@ var items = {
         name: "Deadly pathogens",
         amount: 0,
         cost: 1500000,
-        upr_cost: 50,
+        upg_cost: 45000,
         level: 1,
         income: 20000,
     },
@@ -114,15 +114,24 @@ var items = {
         name: "Powerful Bio-Chemical Weapons",
         amount: 0,
         cost: 5000000,
-        upr_cost: 50,
+        upg_cost: 150000,
         level: 1,
         income: 400000,
+    },
+    biobomb: {
+        id: "biobomb",
+        name: "Powerful Bio-Chemical Nuclear Bomb",
+        amount: 0,
+        cost: 25000000,
+        upg_cost: 750000,
+        level: 1,
+        income: 1000000,
     },
 
 };
 
 function initialize() {
-
+    updateAll();
 
 }
 
@@ -147,9 +156,7 @@ function calcCurrPS(itemVal){
     return format(itemPS);
 }
 
-function updateDnaPS(){
-    $("#dnaPS").html(calcTotalPS()+" DNA/s");
-}
+
 
 function addCurrency(val,id) {
     var currency;
@@ -191,11 +198,29 @@ function updateItemsUI() {
         
         $("#" + val +"Name").html(items[val].name);
         $("#" + val +"Amount").html("Amount: " + format(items[val].amount));
-        $("#" + val +"Cost").html("Cost: " + format(items[val].cost));
-        $("#" + val +"Level").html("Level: " + format(items[val].level));
+        $("#" + val +"Cost").html("Cost: " + format(items[val].cost) + " DNA");
         $("#" + val +"DnaPS").html(calcCurrPS(val) + " DNA/s");
 
     }
+}
+
+function updateUpgradeUI() {
+    for (var val in items){
+        if(player.currencies.cell >= items[val].upg_cost){
+        $("." + val+"Container").css({color: 'green'});
+        }
+        else{
+            $("." + val + "Container").css({color: 'red'});
+        }
+        $("#" + val +"NameUpg").html(items[val].name + " Upgrade");
+        $("#" + val +"LevelUpg").html("Level: " + format(items[val].level));
+        $("#" + val +"CostUpg").html("Cost: " + format(items[val].upg_cost) + " Cells");
+
+    }
+}
+
+function updateDnaPS(){
+    $("#dnaPS").html(calcTotalPS()+" DNA/s");
 }
 
 function clickItem(val){
@@ -204,7 +229,6 @@ function clickItem(val){
         currItem = item;
     }
     $("." + currItem + "Container").click(buyItem(val));
-
 }
 
 function buyItem(val){
@@ -213,6 +237,23 @@ function buyItem(val){
         items[val].cost = (items[val].cost * 1.1) + ((items[val].amount*0.25)+1);
         items[val].amount += 1;
         console.log("cost" + items[val].cost);
+    }
+}
+
+function clickUpgrade(val){
+    var currItem;
+    for (var item in items){
+        currItem = item;
+    }
+    $("." + currItem + "Container").click(buyUpgrade(val));
+}
+
+function buyUpgrade(val){
+    if(player.currencies.cell >= items[val].upg_cost){
+        player.currencies.cell -= items[val].upg_cost;
+        items[val].cost = (items[val].upg_cost * 1.05) + ((items[val].level-1)*0.2);
+        items[val].level += 1;
+        console.log("cost" + items[val].upg_cost);
     }
 }
 
@@ -228,6 +269,7 @@ function updateAll(){
     updateCurrencyUI();
     updateItemsUI();
     updateDnaPS();
+    updateUpgradeUI();
 }
 
 function gameLoop(){

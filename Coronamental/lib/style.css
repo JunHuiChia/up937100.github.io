@@ -1,10 +1,12 @@
 .mainNav{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 .nav-item .nav-link{
+    font-size: 1.1rem;
     color: rgb(6, 179, 179);
 }
  .mainNav .nav-link.active {
+    font-size: 1.2rem;
     background-color: rgb(48, 100, 100);
 }
 
@@ -13,10 +15,16 @@
     background-color: grey;
 }
 
-.secNav .nav-link.active{
-    font-size: 1.1rem;
+.itemNav .nav-link.active{
+    font-size: 1.2rem;
     color: #DAF7DC;
     background-color: #7D80DA;
+}
+
+.upgNav .nav-link.active{
+    font-size: 1.2rem;
+    color: #222A68;
+    background-color: #c0ae8d;
 }
 
 .dnaContainer, .cellContainer{
@@ -29,3 +37,8 @@
     color: #FB3640;
 }
 
+.upgrade1Container{
+    border: 2px solid#7EBCE6;
+    background-color: #332672;
+    color: #FF331F;
+}
