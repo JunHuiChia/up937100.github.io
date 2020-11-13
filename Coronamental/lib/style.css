@@ -1,0 +1,9 @@
+.dnaContainer, .cellContainer{
+    border: 1px solid grey;
+}
+
+.fliesContainer, .handsContainer{
+    border: 2px solid burlywood;
+    background-color: rgb(10, 56, 56);
+    color: rgb(247, 21, 21);
+}

@@ -1,200 +1,70 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="interface.css" />
-	<title> Coronamental </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coronamental</title>
+
+    <script src="lib/underscore-min.js" text="type/javascript"></script>
+    <script src="lib/jquery.js" text="type/javascript"></script>
+	<script src="lib/bootstrap/js/bootstrap.js" text="type/javascript"></script>
+    <script src="main.js" text="type/javascript"></script>
+
+
+    <link  href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link  href="lib/style.css" rel="stylesheet">
+
+    <script text="type/javascript">
+   
+        $(document).ready(initialize);
+
+    </script>
+
 </head>
-<body class="bgc tc">
+<body class="bg-dark text-light container-fluid">
 
 
-	<!--Resources-->
-	<div class="resources">
-		<div class="cells">
-			<span id="cells_name">Cells</span>
-			<hr>
-			<span id="cells_amount">0</span>
-		</div>
-		<div class="cps_total">
-			<span id='cps_tag'> CPS </span>
-			<hr>
-			<span id='cps'>0</span>
-		</div>
-		<button class = "button" onClick="infectClick(upgrade_click)"> Infect </button>
+    <div class="row">
+        <div class="col-sm-4 mb-4">
+            <div class="dnaContainer text-center">
+                <span>DNA</span>
+                <div id="dnaAmt">0</div>
+                <button type="button" class="btn btn-light " id="dnaClick" onclick="clickCurrency('dna')">Grow</button>
+            </div>
+            <div class="cellContainer text-center">
+                <span>Cells</span>
+                <div id="cellAmt">0</div>
+                <button type="button" class="btn btn-light " id="cellClick" onclick="clickCurrency('cell')">Transform</button>
 
-	</div>
+            </div>
+        </div>
+        <div class="col-sm-4">Prestige</div>
+        <div class="col-sm-4">Others</div>
+    </div>
 
-	<!--BUILDINGS-->
-	<div id="buildingsContainer">
-		<span class="building_sections">
-			<button id="building_1" class="bBtn building_1 active" onClick="buildingMenu(event,'buildings1')" style="visibility: visible;">Items 1</button>
-			<button id="building_2" class="bBtn building_2" onClick="buildingMenu(event,'buildings2')" style="visibility: hidden;">Items 2</button>
-			<button id="building_3" class="bBtn building_3" onClick="buildingMenu(event,'buildings3')" style="visibility: hidden;">Items 3</button>
-		</span>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="fliesContainer text-center py-2" onclick="clickItem('flies')" title="">
+                <div id="fliesName"></div>
+                <div id="fliesAmount"></div>
+                <div id="fliesCost"></div>
+                <div id="fliesLevel"></div>
+            </div>
+            <div class=" handsContainer text-center py-2" onclick="clickItem('hands')">
+                <div id="handsName"></div>
+                <div id="handsAmount"></div>
+                <div id="handsCost"></div>
+                <div id="handsLevel"></div>
+            </div>
+        </div>
+        <div class="col-sm-4">Upgrades</div>
+        <div class="col-sm-4">Others</div>
+    </div>
 
-		<div id="buildings1Container" style="visibility: visible;">
-			<div class="building_flies">
-				<div class="building_desc">
-					<span id="building_flies_name">Flies: </span> 
-					<span id="building_flies_amount">0</span>
-					<br>
-					<span id="building_flies_cost_name">Cost: </span>
-					<span id="building_flies_cost">10</span>
-				</div>	
-				<div id="building_flies_cps">
-					<span id="building_flies_cps_num">0</span> 
-					<span id="building_flies_cps_name">CPS</span>
-				</div>
-				<button class = "button" onClick="buyBuildingFlies()" > Buy </button>
-			</div>
-			<div class="building_hands">
-				<div class="building_desc">
-					<span id="building_hands_name">Dirty Hands: </span> 
-					<span id="building_hands_amount">0</span>
-					<br>
-					<span id="building_hands_cost_name">Cost: </span>
-					<span id="building_hands_cost">350</span>
-				</div>	
-				<div id="building_hands_cps">
-					<span id="building_hands_cps_num">0</span> 
-					<span id="building_hands_cps_name">CPS</span>
-				</div>
-				<button class = "button" onClick="buyBuildingHands()"> Buy </button>
-			</div>
-			<div class="building_mask">
-				<div class="building_desc">
-					<span id="building_mask_name">Maskless: </span> 
-					<span id="building_mask_amount">0</span>
-					<br>
-					<span id="building_mask_cost_name">Cost: </span>
-					<span id="building_mask_cost">5000</span>
-				</div>	
-				<div id="building_mask_cps">
-					<span id="building_mask_cps_num">0</span> 
-					<span id="building_mask_cps_name">CPS</span>
-				</div>
-				<button class ="button" onClick="buyBuildingMask()"> Buy </button>
-			</div>
-			<div class="building_kiss">
-				<div class="building_desc">
-					<span id="building_kiss_name">Kissing: </span> 
-					<span id="building_kiss_amount">0</span>
-					<br>
-					<span id="building_kiss_cost_name">Cost: </span>
-					<span id="building_kiss_cost">15000</span>
-				</div>	
-				<div id="building_kiss_cps">
-					<span id="building_kiss_cps_num">0</span> 
-					<span id="building_kiss_cps_name">CPS</span>
-				</div>
-				<button class ="button" onClick="buyBuildingKiss()"> Buy </button>
-			</div>
-		</div>
-		<div id="buildings2Container" style="visibility: hidden;">
-			<span id="placeholder">placeholder</span>
-		</div>
-		<div id="buildings3Container" style="visibility: hidden;">
-			<span id="placeholder2">placeholder2</span>
-		</div>
-	</div>
 
-	<!--UPGRADES-->
-	<div id="upgradesContainer">
-		<span class="upgrades_sections">
-			<button id="upgrade_1" class="uBtn upgrades_1 active2" onClick="upgradeMenu(event,'upgrades1')" style="visibility: visible;">Upgrades 1</button>
-			<button id="upgrade_2" class="uBtn upgrades_2" onClick="upgradeMenu(event,'upgrades2')" style="visibility: hidden;">Upgrades 2</button>
-			<button id="upgrade_3" class="uBtn upgrades_3" onClick="upgradeMenu(event,'upgrades3')" style="visibility: hidden;">Upgrades 3</button>
-		</span>
-		
-		<div id="upgrades1Container" style="visibility: visible;">
-			<div class="upgrade_click">
-				<div class="upgrade_desc">
-					<span id="upgrade_click_name">Infect Multiplier: </span> 
-					<span id="upgrade_click_amount">1</span>
-					<br>
-					<span id="upgrade_click_cost_name">Cost: </span>
-					<span id="upgrade_click_cost">50</span>
-				</div>	
-				<button class = "button" onClick="buyUpgradeClick()"> Buy </button>
-			</div>
-			<div class="upgrade_flies">
-				<div class="upgrade_desc">
-					<span id="upgrade_flies_name">Flies Level: </span> 
-					<span id="upgrade_flies_amount">1</span>
-					<br>
-					<span id="upgrade_flies_cost_name">Cost: </span>
-					<span id="upgrade_flies_cost">450</span>
-				</div>	
-				<button class = "button" onClick="buyUpgradeFlies()"> Buy </button>
-			</div>
-			<div class="upgrade_hands">
-				<div class="upgrade_desc">
-					<span id="upgrade_hands_name">Dirty Hands Level: </span> 
-					<span id="upgrade_hands_amount">1</span>
-					<br>
-					<span id="upgrade_hands_cost_name">Cost: </span>
-					<span id="upgrade_hands_cost">3000</span>
-				</div>
-				<button class = "button" onClick="buyUpgradeHands()"> Buy </button>
-			</div>
-			<div class="upgrade_mask">
-				<div class="upgrade_desc">
-					<span id="upgrade_mask_name">Maskless Level: </span> 
-					<span id="upgrade_mask_amount">1</span>
-					<br>
-					<span id="upgrade_mask_cost_name">Cost: </span>
-					<span id="upgrade_mask_cost">10000</span>
-				</div>
-				<button class = "button" onClick="buyUpgradeMask()"> Buy </button>
-			</div>
-			<div class="upgrade_kiss">
-				<div class="upgrade_desc">
-					<span id="upgrade_kiss_name">Kissing Level: </span> 
-					<span id="upgrade_kiss_amount">1</span>
-					<br>
-					<span id="upgrade_kiss_cost_name">Cost: </span>
-					<span id="upgrade_kiss_cost">20000</span>
-				</div>
-				<button class = "button" onClick="buyUpgradeKiss()"> Buy </button>
-			</div>
-		</div>
-		<div id="upgrades2Container" style="visibility: hidden;">
-			<span id="placeholder">placeholder upgrade</span>
-		</div>
-		<div id="upgrades3Container" style="visibility: hidden;">
-			<span id="placeholder2">placeholder2 upgrade</span>
-		</div>
-	</div>
-
-	<!--Minigames-->
-
-	<div class="minigames">
-		<div class="minigameNumberGuesser">
-			<label for="guesser">Guess the number! (1-10) Win 4x</label>
-			<br>
-			<input id="userGuess" name="userGuess" type="number" min="0" max="10" value="0" required>
-			<button class = "guessButton" onClick="guessNumber()">Guess</button>
-			<span id="guessStatus"></span>
-		</div>
-
-		<div class="minigameAllOrNothing">
-			<label for="allOrNothing"><strong>50/50 Doubler</strong></label>
-			<br>
-			<input type="range" min="0" max="10" value="5" id="sliderAllOrNothing">
-			<span id="allOrNothingValue"></span> Cells
-			<br>
-			<button id="allOrNothingButton" onClick="allOrNothing()">Gamble</button>
-			<span id="allOrNothingStatus"></span>
+    <div class="row">Footer</div>
 
 
 
-
-	 </div>
- 	</div>
-	 <!--CHEAT-->
-	 <div class="cheat">
-		 <button class="cheatButton" onClick="cheat()">Cheat Button</button>
-	 </div>
-
-	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
