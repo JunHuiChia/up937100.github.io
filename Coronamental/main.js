@@ -131,6 +131,7 @@ var items = {
 };
 
 function initialize() {
+    load();
     updateAll();
 
 }
@@ -191,6 +192,7 @@ function updateItemsUI() {
     for (var val in items){
         if(player.currencies.dna >= items[val].cost){
         $("." + val+"Container").css({color: 'green'});
+        console.log("test");
         }
         else{
             $("." + val + "Container").css({color: 'red'});
@@ -207,10 +209,10 @@ function updateItemsUI() {
 function updateUpgradeUI() {
     for (var val in items){
         if(player.currencies.cell >= items[val].upg_cost){
-        $("." + val+"Container").css({color: 'green'});
+        $("." + val+"UpgContainer").css({color: 'green'});
         }
         else{
-            $("." + val + "Container").css({color: 'red'});
+            $("." + val + "UpgContainer").css({color: 'red'});
         }
         $("#" + val +"NameUpg").html(items[val].name + " Upgrade");
         $("#" + val +"LevelUpg").html("Level: " + format(items[val].level));
@@ -245,7 +247,7 @@ function clickUpgrade(val){
     for (var item in items){
         currItem = item;
     }
-    $("." + currItem + "Container").click(buyUpgrade(val));
+    $("." + currItem + "UpgContainer").click(buyUpgrade(val));
 }
 
 function buyUpgrade(val){
@@ -263,7 +265,17 @@ function itemGain(){
     }
 }
 
+function save(){
+    localStorage.setItem("playerData", JSON.stringify(player));
+    localStorage.setItem("itemData", JSON.stringify(items));
+    $('.toast').toast("show");
+    console.log("saved");
+}
 
+function load(){
+    $.extend(player, JSON.parse(localStorage.getItem("playerData")));
+    $.extend(items, JSON.parse(localStorage.getItem("itemData")));
+}
 
 function updateAll(){
     updateCurrencyUI();
@@ -284,6 +296,11 @@ function gameLoop(){
         updateAll();
     },50);
     //Game updates UI every 50ms.
+
+    window.setInterval(function(){
+        //save();
+    },20000);
+    //Save game every 20 seconds
 }
 
 gameLoop();

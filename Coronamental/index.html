@@ -89,7 +89,7 @@
                     <div class="tab-pane fade show active" id="items1" role="tabpanel" aria-labelledby="items1Tab">
                         <div class="row ">
                             <div class="col-sm-4 px-1">
-                                <div class="fliesContainer text-center py-2 item1Container" onclick="clickItem('flies')" title="">
+                                <div class="fliesContainer text-center py-2 item1Container" onclick="clickItem('flies')">
                                     <div id="fliesName"></div>
                                     <div id="fliesAmount"></div>
                                     <div id="fliesCost"></div>
@@ -200,12 +200,12 @@
                     </ul>
                 
                 <!--END of upgrade tab bars-->
+                <!--Upgrade 1 tab-->
                 <div class="tab-content"> 
-                    <!--Upgrade 1 tab-->
                     <div class="tab-pane fade show active" id="upgrade1" role="tabpanel" aria-labelledby="upgrade1Tab">
                         <div class="row">
                             <div class="col-md-4 px-1">
-                                <div class=" fliesContainer text-center py-2 upgrade1Container" onclick="clickUpgrade('water')">
+                                <div class=" fliesUpgContainer text-center py-2 upgrade1Container" onclick="clickUpgrade('flies')">
                                     <div id="fliesNameUpg"></div>
                                     <div id="fliesLevelUpg"></div>
                                     <div id="fliesCostUpg"></div>
@@ -233,10 +233,23 @@
             <!--Options Tab-->
             <div class="tab-pane fade" id="options" role="tabpanel" aria-labelledby="optionsTab">
                 <div class="col-sm-4">list of options here</div>
+                <button type="button" class="btn btn-light " id="save" onclick="save()">Save</button>
+                <button type="button" class="btn btn-light " id="load" onclick="load()">Load</button>
+
             </div>
         </div>
     </div>
 
-
+    <div class="toast fade " role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header justify-content-end">
+        <span>Game Saved</span>
+          <button type="button" class="btn-secondary ml-2 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
 </body>
+<footer>
+    
+</footer>
 </html>

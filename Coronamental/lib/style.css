@@ -27,6 +27,14 @@
     background-color: #c0ae8d;
 }
 
+.toast-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #585656;
+    color: white;
+}
+
 .dnaContainer, .cellContainer{
     border: 1px solid grey;
 }
