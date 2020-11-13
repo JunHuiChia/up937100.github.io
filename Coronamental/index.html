@@ -48,6 +48,7 @@
             <div class="row text-center">
                 <span>100 DNA --> 1 Cell</span>
                 <div id="dnaPS"></div>
+                <div id="cellPS"></div>
             </div>
             <!--End of Info box-->
         </div>
@@ -80,6 +81,9 @@
                     </li>
                     <li class="nav-item">
                         <a id="items2Tab" href="#items2" class="nav-link " data-toggle="pill" role="tab" aria-controls="items2" aria-selected="true">Items 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="items3Tab" href="#items3" class="nav-link " data-toggle="pill" role="tab" aria-controls="items3" aria-selected="true">Cell items</a>
                     </li>
                 </ul>
                 <!--End of secondary items Tab-->
@@ -191,6 +195,24 @@
                         </div>
                     </div>
                     <!--End of items 2 tab-->
+                    <div class="tab-pane fade" id="items3" role="tabpanel" aria-labelledby="items3Tab">
+                        <div class="row">
+                            <div class="col-md-4 offset-md-2 px-1">
+                                <div class=" fuse1CellContainer text-center py-2 item2Container" onclick="clickCellItem('fuse1')">
+                                    <div id="fuse1CellName"></div>
+                                    <div id="fuse1CellAmount"></div>
+                                    <div id="fuse1CellCost"></div>
+                                    <div id="fuse1CellPS"></div>
+                                </div>
+                                <div class=" fuse2CellContainer text-center py-2 item2Container" onclick="clickCellItem('fuse2')">
+                                    <div id="fuse2CellName"></div>
+                                    <div id="fuse2CellAmount"></div>
+                                    <div id="fuse2CellCost"></div>
+                                    <div id="fuse2CellPS"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--End of items content Tab-->
             </div>
@@ -202,6 +224,9 @@
                         </li>
                         <li class="nav-item">
                             <a id="upgrade2Tab" href="#upgrade2" class="nav-link " data-toggle="pill" role="tab" aria-controls="upgrade2" aria-selected="true">Upgrades 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="upgrade3Tab" href="#upgrade3" class="nav-link " data-toggle="pill" role="tab" aria-controls="upgrade3" aria-selected="true">Cell Upgrades</a>
                         </li>
                     </ul>
                 
@@ -300,6 +325,17 @@
                         </div>
                     </div>
                     <!--END of upgrade 2 tab-->
+                    <div class="tab-pane fade" id="upgrade3" role="tabpanel" aria-labelledby="upgrade3Tab">
+                        <div class="row">
+                            <div class="col-md-4 px-1">
+                                <div class=" fuse1CellUpgContainer text-center py-2 upgrade3Container" onclick="clickCellUpgrade('fuse1')">
+                                    <div id="fuse1CellNameUpg"></div>
+                                    <div id="fuse1CellLevelUpg"></div>
+                                    <div id="fuse1CellCostUpg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!--Prestige Tab-->
@@ -311,10 +347,13 @@
                 <div class="col-sm-4">list of options here</div>
                 <button type="button" class="btn btn-light " id="save" onclick="save()">Save</button>
                 <button type="button" class="btn btn-light " id="load" onclick="load()">Load</button>
+                <button type="button" class="btn btn-light " id="load" onclick="deleteSave()">Wipe save</button>
 
             </div>
         </div>
     </div>
+
+
 
     <div class="toast fade " role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header justify-content-end">

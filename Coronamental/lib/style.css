@@ -4,6 +4,7 @@
 .nav-item .nav-link{
     font-size: 1.1rem;
     color: rgb(6, 179, 179);
+    border: 1px solid black;
 }
  .mainNav .nav-link.active {
     font-size: 1.2rem;
@@ -45,7 +46,7 @@
     color: #FB3640;
 }
 
-.upgrade1Container{
+.upgrade1Container,.upgrade2Container,.upgrade3Container{
     border: 2px solid#7EBCE6;
     background-color: #332672;
     color: #FF331F;

@@ -21,7 +21,7 @@ var items = {
     },
     hands: {
         id: "hands",
-        name: "Dirty Hands",
+        name: "Dirty hands",
         amount: 0,
         cost: 250,
         upg_cost: 10,
@@ -30,7 +30,7 @@ var items = {
     },
     food: {
         id: "food",
-        name: "Infected Food",
+        name: "Infected food",
         amount: 0,
         cost: 1500,
         upg_cost: 60,
@@ -48,7 +48,7 @@ var items = {
     },
     person: {
         id: "person",
-        name: "Infected Person",
+        name: "Infected person",
         amount: 0,
         cost: 25000,
         upg_cost: 1000,
@@ -57,7 +57,7 @@ var items = {
     },
     mask: {
         id: "mask",
-        name: "No Masks",
+        name: "No masks",
         amount: 0,
         cost: 60000,
         upg_cost: 2000,
@@ -75,7 +75,7 @@ var items = {
     },
     faeces: {
         id: "faeces",
-        name: "Transfer of Faecal matter",
+        name: "Transfer of faecal matter",
         amount: 0,
         cost: 325000,
         upg_cost: 6050,
@@ -93,7 +93,7 @@ var items = {
     },
     water: {
         id: "water",
-        name: "Contaminated Water",
+        name: "Contaminated water",
         amount: 0,
         cost: 7500000,
         upg_cost: 40000,
@@ -138,6 +138,27 @@ var items = {
     },
 };
 
+var cellItems = {
+    fuse1: {
+        id: "fuse1",
+        name: "Cell Fuse I",
+        amount: 0,
+        cost: 50000,
+        upg_cost: 500000,
+        level: 1,
+        income: 1,
+    },
+    fuse2: {
+        id: "fuse2",
+        name: "Cell Fuse II",
+        amount: 0,
+        cost: 25000000,
+        upg_cost: 250000000,
+        level: 1,
+        income: 100,
+    },
+};
+
 function initialize() {
     load();
     updateAll();
@@ -152,16 +173,29 @@ function format(amount){
 }
 
 
-function calcTotalPS(){
-    var totalPS = 0;
+function calcTotalDnaPS(){
+    var TotalDnaPS = 0;
     for(var item in items){
-        totalPS += (items[item].income * items[item].amount * items[item].level);
+        TotalDnaPS += (items[item].income * items[item].amount * items[item].level);
     }
-    return format(totalPS);
+    return format(TotalDnaPS);
+}
+
+function calcTotalCellPS(){
+    var TotalCellPS = 0;
+    for(var item in cellItems){
+        TotalCellPS += (cellItems[item].income * cellItems[item].amount * cellItems[item].level);
+    }
+    return format(TotalCellPS);
 }
 
 function calcCurrPS(itemVal){
     var itemPS = (items[itemVal].income * items[itemVal].amount * items[itemVal].level);
+    return format(itemPS);
+}
+
+function calcCurrCellPS(itemVal){
+    var itemPS = (cellItems[itemVal].income * cellItems[itemVal].amount * cellItems[itemVal].level);
     return format(itemPS);
 }
 
@@ -200,7 +234,6 @@ function updateItemsUI() {
     for (var val in items){
         if(player.currencies.dna >= items[val].cost){
         $("." + val+"Container").css({color: 'green'});
-        console.log("test");
         }
         else{
             $("." + val + "Container").css({color: 'red'});
@@ -210,6 +243,22 @@ function updateItemsUI() {
         $("#" + val +"Amount").html("Amount: " + format(items[val].amount));
         $("#" + val +"Cost").html("Cost: " + format(items[val].cost) + " DNA");
         $("#" + val +"DnaPS").html(calcCurrPS(val) + " DNA/s");
+
+    }
+}
+
+function updateCellItemsUI() {
+    for (var val in cellItems){
+        if(player.currencies.dna >= cellItems[val].cost){
+        $("." + val+"CellContainer").css({color: 'green'});
+        }
+        else{
+            $("." + val + "CellContainer").css({color: 'red'});
+        }
+        $("#" + val +"CellName").html(cellItems[val].name);
+        $("#" + val +"CellAmount").html("Amount: " + format(cellItems[val].amount));
+        $("#" + val +"CellCost").html("Cost: " + format(cellItems[val].cost) + " DNA");
+        $("#" + val +"CellPS").html(calcCurrCellPS(val) + " Cell/s");
 
     }
 }
@@ -229,8 +278,24 @@ function updateUpgradeUI() {
     }
 }
 
+function updateCellUpgradeUI() {
+    for (var val in cellItems){
+        if(player.currencies.cell >= cellItems[val].upg_cost){
+        $("." + val+"CellUpgContainer").css({color: 'green'});
+        }
+        else{
+            $("." + val + "CellUpgContainer").css({color: 'red'});
+        }
+        $("#" + val +"CellNameUpg").html(cellItems[val].name + " Upgrade");
+        $("#" + val +"CellLevelUpg").html("Level: " + format(cellItems[val].level));
+        $("#" + val +"CellCostUpg").html("Cost: " + format(cellItems[val].upg_cost) + " Cells");
+
+    }
+}
+
 function updateDnaPS(){
-    $("#dnaPS").html(calcTotalPS()+" DNA/s");
+    $("#dnaPS").html(calcTotalDnaPS()+" DNA/s");
+    $("#cellPS").html(calcTotalCellPS()+" Cell/s");
 }
 
 function clickItem(val){
@@ -241,12 +306,27 @@ function clickItem(val){
     $("." + currItem + "Container").click(buyItem(val));
 }
 
+function clickCellItem(val){
+    var currCellItem;
+    for (var cellItem in cellItems){
+        currCellItem = cellItem;
+    }
+    $("."+ currCellItem + "Container").click(buyCellItem(val));
+}
+
 function buyItem(val){
     if(player.currencies.dna >= items[val].cost){
         player.currencies.dna -= items[val].cost;
         items[val].cost = (items[val].cost * 1.2) + ((items[val].amount*0.35)+1);
         items[val].amount += 1;
-        console.log("cost" + items[val].cost);
+    }
+}
+
+function buyCellItem(val){
+    if(player.currencies.dna >= cellItems[val].cost){
+        player.currencies.dna -= cellItems[val].cost;
+        cellItems[val].cost = (cellItems[val].cost * 1.3) + ((cellItems[val].amount*0.4)+1);
+        cellItems[val].amount += 1;
     }
 }
 
@@ -258,18 +338,39 @@ function clickUpgrade(val){
     $("." + currItem + "UpgContainer").click(buyUpgrade(val));
 }
 
+function clickUpgrade(val){
+    var currCellItem;
+    for (var item in cellItems){
+        currCellItem = item;
+    }
+    $("." + currCellItem + "CellUpgContainer").click(buyCellUpgrade(val));
+}
+
 function buyUpgrade(val){
     if(player.currencies.cell >= items[val].upg_cost){
         player.currencies.cell -= items[val].upg_cost;
         items[val].upg_cost = (items[val].upg_cost * 1.2) + ((items[val].level-1)*0.35);
         items[val].level += 1;
-        console.log("cost" + items[val].upg_cost);
+    }
+}
+
+function buyCellUpgrade(val){
+    if(player.currencies.cell >= cellItems[val].upg_cost){
+        player.currencies.cell -= cellItems[val].upg_cost;
+        cellItems[val].upg_cost = (cellItems[val].upg_cost * 1.25) + ((cellItems[val].level-1)*0.4);
+        cellItems[val].level += 1;
     }
 }
 
 function itemGain(){
     for(var item in items){
         player.currencies.dna += (items[item].income * items[item].amount * items[item].level);
+    }
+}
+
+function cellItemGain(){
+    for(var cell in cellItems){
+        player.currencies.cell += (cellItems[cell].income * cellItems[cell].amount * cellItems[cell].level);
     }
 }
 
@@ -285,11 +386,18 @@ function load(){
     $.extend(items, JSON.parse(localStorage.getItem("itemData")));
 }
 
+function deleteSave(){
+    localStorage.removeItem("playerData");
+    localStorage.removeItem("itemData");
+}
+
 function updateAll(){
     updateCurrencyUI();
     updateItemsUI();
     updateDnaPS();
     updateUpgradeUI();
+    updateCellItemsUI();
+    updateCellUpgradeUI()
 }
 
 function gameLoop(){
@@ -297,7 +405,8 @@ function gameLoop(){
 
     window.setInterval(function(){
         itemGain();
-        calcTotalPS();
+        cellItemGain();
+        calcTotalDnaPS();
     },gameTick);
 
     window.setInterval(function(){
