@@ -389,6 +389,7 @@ function load(){
 function deleteSave(){
     localStorage.removeItem("playerData");
     localStorage.removeItem("itemData");
+    location.reload();
 }
 
 function updateAll(){
@@ -397,7 +398,7 @@ function updateAll(){
     updateDnaPS();
     updateUpgradeUI();
     updateCellItemsUI();
-    updateCellUpgradeUI()
+    updateCellUpgradeUI();
 }
 
 function gameLoop(){
