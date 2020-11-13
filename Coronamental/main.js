@@ -377,6 +377,7 @@ function cellItemGain(){
 function save(){
     localStorage.setItem("playerData", JSON.stringify(player));
     localStorage.setItem("itemData", JSON.stringify(items));
+    localStorage.setItem("cellItemData", JSON.stringify(cellItems));
     $('.toast').toast("show");
     console.log("saved");
 }
