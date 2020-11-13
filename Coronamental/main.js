@@ -298,7 +298,7 @@ function gameLoop(){
     //Game updates UI every 50ms.
 
     window.setInterval(function(){
-        //save();
+        save();
     },20000);
     //Save game every 20 seconds
 }
