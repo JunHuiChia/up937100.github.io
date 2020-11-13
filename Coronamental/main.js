@@ -385,6 +385,8 @@ function save(){
 function load(){
     $.extend(player, JSON.parse(localStorage.getItem("playerData")));
     $.extend(items, JSON.parse(localStorage.getItem("itemData")));
+    $.extend(cellItems, JSON.parse(localStorage.getItem("cellItemData")));
+
 }
 
 function deleteSave(){
