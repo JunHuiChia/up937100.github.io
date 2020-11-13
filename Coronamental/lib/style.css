@@ -23,8 +23,9 @@
     border: 1px solid grey;
 }
 
-.item1Container{
+.item1Container, .item2Container{
     border: 2px solid burlywood;
     background-color: #0D1F2D;
     color: #FB3640;
 }
+
