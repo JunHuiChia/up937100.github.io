@@ -23,8 +23,8 @@ var items = {
         id: "hands",
         name: "Dirty Hands",
         amount: 0,
-        cost: 200,
-        upg_cost: 6,
+        cost: 250,
+        upg_cost: 10,
         level: 1,
         income: 10,
     },
@@ -32,8 +32,8 @@ var items = {
         id: "food",
         name: "Infected Food",
         amount: 0,
-        cost: 750,
-        upg_cost: 22,
+        cost: 1500,
+        upg_cost: 60,
         level: 1,
         income: 25,
     },
@@ -41,8 +41,8 @@ var items = {
         id: "air",
         name: "Air droplets",
         amount: 0,
-        cost: 2000,
-        upg_cost: 60,
+        cost: 7500,
+        upg_cost: 250,
         level: 1,
         income: 100,
     },
@@ -50,8 +50,8 @@ var items = {
         id: "person",
         name: "Infected Person",
         amount: 0,
-        cost: 7500,
-        upg_cost: 225,
+        cost: 25000,
+        upg_cost: 1000,
         level: 1,
         income: 250,
     },
@@ -59,8 +59,8 @@ var items = {
         id: "mask",
         name: "No Masks",
         amount: 0,
-        cost: 20000,
-        upg_cost: 600,
+        cost: 60000,
+        upg_cost: 2000,
         level: 1,
         income: 500,
     },
@@ -68,8 +68,8 @@ var items = {
         id: "kiss",
         name: "Kisses",
         amount: 0,
-        cost: 50000,
-        upg_cost: 1500,
+        cost: 100000,
+        upg_cost: 3000,
         level: 1,
         income: 1000,
     },
@@ -77,8 +77,8 @@ var items = {
         id: "faeces",
         name: "Transfer of Faecal matter",
         amount: 0,
-        cost: 125000,
-        upg_cost: 3750,
+        cost: 325000,
+        upg_cost: 6050,
         level: 1,
         income: 1750,
     },
@@ -86,8 +86,8 @@ var items = {
         id: "blood",
         name: "Infected blood transfer",
         amount: 0,
-        cost: 300000,
-        upg_cost: 9000,
+        cost: 1250000,
+        upg_cost: 12500,
         level: 1,
         income: 5000,
     },
@@ -95,8 +95,8 @@ var items = {
         id: "water",
         name: "Contaminated Water",
         amount: 0,
-        cost: 750000,
-        upg_cost: 22500,
+        cost: 7500000,
+        upg_cost: 40000,
         level: 1,
         income: 10000,
     },
@@ -104,8 +104,8 @@ var items = {
         id: "pathogen",
         name: "Deadly pathogens",
         amount: 0,
-        cost: 1500000,
-        upg_cost: 45000,
+        cost: 15000000,
+        upg_cost: 100000,
         level: 1,
         income: 20000,
     },
@@ -113,8 +113,8 @@ var items = {
         id: "biowep",
         name: "Powerful Bio-Chemical Weapons",
         amount: 0,
-        cost: 5000000,
-        upg_cost: 150000,
+        cost: 100000000,
+        upg_cost: 800000,
         level: 1,
         income: 400000,
     },
@@ -122,8 +122,8 @@ var items = {
         id: "biobomb",
         name: "Powerful Bio-Chemical Nuclear Bomb",
         amount: 0,
-        cost: 25000000,
-        upg_cost: 750000,
+        cost: 2500000000,
+        upg_cost: 16000000,
         level: 1,
         income: 1000000,
     },
@@ -236,7 +236,7 @@ function clickItem(val){
 function buyItem(val){
     if(player.currencies.dna >= items[val].cost){
         player.currencies.dna -= items[val].cost;
-        items[val].cost = (items[val].cost * 1.1) + ((items[val].amount*0.25)+1);
+        items[val].cost = (items[val].cost * 1.2) + ((items[val].amount*0.35)+1);
         items[val].amount += 1;
         console.log("cost" + items[val].cost);
     }
@@ -253,7 +253,7 @@ function clickUpgrade(val){
 function buyUpgrade(val){
     if(player.currencies.cell >= items[val].upg_cost){
         player.currencies.cell -= items[val].upg_cost;
-        items[val].cost = (items[val].upg_cost * 1.05) + ((items[val].level-1)*0.2);
+        items[val].upg_cost = (items[val].upg_cost * 1.2) + ((items[val].level-1)*0.35);
         items[val].level += 1;
         console.log("cost" + items[val].upg_cost);
     }
