@@ -127,7 +127,15 @@ var items = {
         level: 1,
         income: 1000000,
     },
-
+    wan: {
+        id: "wan",
+        name: "Wan's farts",
+        amount: 0,
+        cost: 2500000000000000,
+        upg_cost: 1600000000000,
+        level: 1,
+        income: 100000000000,
+    },
 };
 
 function initialize() {
