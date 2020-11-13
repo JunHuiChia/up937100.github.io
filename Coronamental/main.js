@@ -338,7 +338,7 @@ function clickUpgrade(val){
     $("." + currItem + "UpgContainer").click(buyUpgrade(val));
 }
 
-function clickUpgrade(val){
+function clickCellUpgrade(val){
     var currCellItem;
     for (var item in cellItems){
         currCellItem = item;
