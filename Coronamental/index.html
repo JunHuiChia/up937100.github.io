@@ -24,46 +24,121 @@
 <body class="bg-dark text-light container-fluid">
 
 
-    <div class="row">
-        <div class="col-sm-4 mb-4">
-            <div class="dnaContainer text-center">
-                <span>DNA</span>
-                <div id="dnaAmt">0</div>
-                <button type="button" class="btn btn-light " id="dnaClick" onclick="clickCurrency('dna')">Grow</button>
+    <div class="row justify-content-center">
+        <div class="col-sm-6 mb-4 col-md-6 ">
+            <!--Resources-->
+            <div class="row">
+                <div class="col-sm-6 px-0">
+                    <div class="dnaContainer text-center">
+                        <span>DNA</span>
+                        <div id="dnaAmt">0</div>
+                        <button type="button" class="btn btn-light " id="dnaClick" onclick="clickCurrency('dna')">Grow</button>
+                    </div>
+                </div>
+                <div class="col-sm-6 px-0">
+                    <div class="cellContainer text-center">
+                        <span>Cells</span>
+                        <div id="cellAmt">0</div>
+                        <button type="button" class="btn btn-light disabled" id="cellClick" onclick="clickCurrency('cell')">Transform</button>
+                    </div>
+                </div>
             </div>
-            <div class="cellContainer text-center">
-                <span>Cells</span>
-                <div id="cellAmt">0</div>
-                <button type="button" class="btn btn-light " id="cellClick" onclick="clickCurrency('cell')">Transform</button>
+            <!--End of Resources-->
+            <!--Info box-->
+            <div class="row text-center">
+                <span>100 DNA --> 1 Cell</span>
+                <div id="dnaPS"></div>
+            </div>
+            <!--End of Info box-->
+        </div>
+    </div>
+    <!--Main Items Tab-->
+    <ul class="nav nav-pills mb-3 justify-content-center mainNav" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a id="itemsTab" href="#items" class="nav-link active" data-toggle="pill" role="tab" aria-controls="items" aria-selected="true">Items</a>
+        </li>
+        <li class="nav-item">
+            <a id="upgradesTab" href="#upgrades" class="nav-link" data-toggle="pill" role="tab" aria-controls="upgrades" aria-selected="false">Upgrades</a>
+        </li>
+        <li class="nav-item">
+            <a id="prestigeTab" href="#prestige" class="nav-link" data-toggle="pill" role="tab" aria-controls="prestige" aria-selected="false">Prestige</a>
+        </li>
+        <li class="nav-item">
+            <a id="optionsTab" href="#options" class="nav-link" data-toggle="pill" role="tab" aria-controls="options" aria-selected="false">Options</a>
+        </li>
+    </ul>
+    <!--End of Main Items Tab-->
 
+    <div class="row">
+        <div class="tab-content">
+            <!--Items Tab-->
+            <div class="tab-pane fade show active" id="items" role="tabpanel" aria-labelledby="itemsTab">
+                <!--Start of secondary items tab-->
+                <ul class="nav nav-pills mb-3 justify-content-center secNav" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a id="items1Tab" href="#items1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="items1" aria-selected="true">Items 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="items2Tab" href="#items2" class="nav-link " data-toggle="pill" role="tab" aria-controls="items2" aria-selected="true">Items 2</a>
+                    </li>
+                </ul>
+                <!--End of secondary items Tab-->
+                <!--Start of items content tab-->
+                <div class="tab-content"> 
+                    <!--Items 1 tab-->
+                    <div class="tab-pane fade show active" id="items1" role="tabpanel" aria-labelledby="items1Tab">
+                        <div class="row ">
+                            <div class="col-sm-4 ">
+                                <div class="fliesContainer text-center py-2 item1Container" onclick="clickItem('flies')" title="">
+                                    <div id="fliesName"></div>
+                                    <div id="fliesAmount"></div>
+                                    <div id="fliesCost"></div>
+                                    <div id="fliesLevel"></div>
+                                </div>
+                                <div class=" handsContainer text-center py-2 item1Container" onclick="clickItem('hands')">
+                                    <div id="handsName"></div>
+                                    <div id="handsAmount"></div>
+                                    <div id="handsCost"></div>
+                                    <div id="handsLevel"></div>
+                                </div>
+                                <div class=" foodContainer text-center py-2 item1Container" onclick="clickItem('food')">
+                                    <div id="foodName"></div>
+                                    <div id="foodAmount"></div>
+                                    <div id="foodCost"></div>
+                                    <div id="foodLevel"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                Test 2
+                            </div>
+                            <div class="col-sm-4">
+                                Test 3
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of items 1 tab-->
+                    <!--Items 2 Tab-->
+                    <div class="tab-pane fade" id="items2" role="tabpanel" aria-labelledby="items2Tab">
+                        Set of items 2 tab
+                    </div>
+                    <!--End of items 2 tab-->
+                </div>
+                <!--End of items content Tab-->
+            </div>
+            <!--Upgrades Tab-->
+            <div class="tab-pane fade " id="upgrades" role="tabpanel" aria-labelledby="upgradesTab">
+                <div>Upgrades</div>
+            </div>
+            <!--Prestige Tab-->
+            <div class="tab-pane fade" id="prestige" role="tabpanel" aria-labelledby="prestigeTab">
+                <div class="col-sm-4">Prestige</div>
+            </div>
+            <!--Options Tab-->
+            <div class="tab-pane fade" id="options" role="tabpanel" aria-labelledby="optionsTab">
+                <div class="col-sm-4">list of options here</div>
             </div>
         </div>
-        <div class="col-sm-4">Prestige</div>
-        <div class="col-sm-4">Others</div>
     </div>
-
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="fliesContainer text-center py-2" onclick="clickItem('flies')" title="">
-                <div id="fliesName"></div>
-                <div id="fliesAmount"></div>
-                <div id="fliesCost"></div>
-                <div id="fliesLevel"></div>
-            </div>
-            <div class=" handsContainer text-center py-2" onclick="clickItem('hands')">
-                <div id="handsName"></div>
-                <div id="handsAmount"></div>
-                <div id="handsCost"></div>
-                <div id="handsLevel"></div>
-            </div>
-        </div>
-        <div class="col-sm-4">Upgrades</div>
-        <div class="col-sm-4">Others</div>
-    </div>
-
-
-    <div class="row">Footer</div>
-
 
 
 </body>

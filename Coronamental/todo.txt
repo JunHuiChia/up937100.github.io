@@ -1,0 +1,19 @@
+Items
+[Bad food,
+Air droplets,
+Faeces,
+blood contact,
+contaminated water,
+Infected person
+Deadly pathogen,
+bio-weapons]
+
+Upgrades [all of the above]
+
+
+Prestige
+[
+infectivity,
+severity,
+]
+rate of infection,

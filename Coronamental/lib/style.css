@@ -1,9 +1,30 @@
+.mainNav{
+    font-size: 1.2rem;
+}
+.nav-item .nav-link{
+    color: rgb(6, 179, 179);
+}
+ .mainNav .nav-link.active {
+    background-color: rgb(48, 100, 100);
+}
+
+.nav-item .disabled{
+    color: rgb(59, 57, 57);
+    background-color: grey;
+}
+
+.secNav .nav-link.active{
+    font-size: 1.1rem;
+    color: #DAF7DC;
+    background-color: #7D80DA;
+}
+
 .dnaContainer, .cellContainer{
     border: 1px solid grey;
 }
 
-.fliesContainer, .handsContainer{
+.item1Container{
     border: 2px solid burlywood;
-    background-color: rgb(10, 56, 56);
-    color: rgb(247, 21, 21);
+    background-color: #0D1F2D;
+    color: #FB3640;
 }
