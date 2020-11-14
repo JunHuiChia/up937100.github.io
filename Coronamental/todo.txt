@@ -9,3 +9,11 @@ infectivity,
 severity,
 ]
 rate of infection,
+
+
+Prestige shop
+
+
+double all item gains
+Decrease game tick
+

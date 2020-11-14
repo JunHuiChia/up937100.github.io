@@ -68,8 +68,8 @@ var items = {
         id: "kiss",
         name: "Kisses",
         amount: 0,
-        cost: 100000,
-        upg_cost: 3000,
+        cost: 1000000,
+        upg_cost: 30000,
         level: 1,
         income: 1000,
     },
@@ -77,8 +77,8 @@ var items = {
         id: "faeces",
         name: "Transfer of faecal matter",
         amount: 0,
-        cost: 325000,
-        upg_cost: 6050,
+        cost: 3250000,
+        upg_cost: 60500,
         level: 1,
         income: 1750,
     },
@@ -86,8 +86,8 @@ var items = {
         id: "blood",
         name: "Infected blood transfer",
         amount: 0,
-        cost: 1250000,
-        upg_cost: 12500,
+        cost: 12500000,
+        upg_cost: 125000,
         level: 1,
         income: 5000,
     },
@@ -122,19 +122,28 @@ var items = {
         id: "biobomb",
         name: "Powerful Bio-Chemical Nuclear Bomb",
         amount: 0,
-        cost: 2500000000,
-        upg_cost: 16000000,
+        cost: 25000000000,
+        upg_cost: 160000000,
         level: 1,
         income: 1000000,
     },
-    wan: {
-        id: "wan",
-        name: "Wan's farts",
+    gas: {
+        id: "gas",
+        name: "Covid19 world gas",
         amount: 0,
-        cost: 2500000000000000,
-        upg_cost: 1600000000000,
+        cost: 50000000000,
+        upg_cost: 2000000000,
         level: 1,
-        income: 100000000000,
+        income: 10000000,
+    },
+    ender: {
+        id: "ender",
+        name: "Ender of World - Corona Virus!",
+        amount: 0,
+        cost: 500000000000,
+        upg_cost: 500000000000,
+        level: 1,
+        income: 700000000,
     },
 };
 
@@ -317,7 +326,7 @@ function clickCellItem(val){
 function buyItem(val){
     if(player.currencies.dna >= items[val].cost){
         player.currencies.dna -= items[val].cost;
-        items[val].cost = (items[val].cost * 1.2) + ((items[val].amount*0.35)+1);
+        items[val].cost = (items[val].cost * 1.2) + ((items[val].amount*0.25)+1);
         items[val].amount += 1;
     }
 }
@@ -386,13 +395,46 @@ function load(){
     $.extend(player, JSON.parse(localStorage.getItem("playerData")));
     $.extend(items, JSON.parse(localStorage.getItem("itemData")));
     $.extend(cellItems, JSON.parse(localStorage.getItem("cellItemData")));
-
 }
 
 function deleteSave(){
     localStorage.removeItem("playerData");
     localStorage.removeItem("itemData");
     location.reload();
+}
+
+function exportSave(){
+    var playerText = btoa(JSON.stringify(player));
+    var itemText = btoa(JSON.stringify(items));
+    var cellItemText = btoa(JSON.stringify(cellItems));
+
+    $("#exportSaveContents1").toggle();
+    $("#exportSaveContents2").toggle();
+    $("#exportSaveContents3").toggle();
+    $("#exportSaveText1").val(playerText);
+    $("#exportSaveText2").val(itemText);
+    $("#exportSaveText3").val(cellItemText);
+
+}
+
+function importSave(){
+    alert("Warning: this will erase your current save!");
+    try{
+        var playerText = $("#importSaveText1").val();
+        var itemText = $("#importSaveText2").val();
+        var cellItemText = $("#importSaveText3").val();
+
+        $.extend(player, JSON.parse(atob(playerText)));
+        $.extend(items, JSON.parse(atob(itemText)));
+        $.extend(cellItems, JSON.parse(atob(cellItemText)));
+    }
+    catch(e){
+        alert("Invalid save files");
+    }
+
+    
+
+    
 }
 
 function updateAll(){
