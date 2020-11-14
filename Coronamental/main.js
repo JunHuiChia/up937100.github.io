@@ -15,7 +15,7 @@ function format(amount){
 function calcTotalDnaPS(){
     var TotalDnaPS = 0;
     for(var item in items){
-        TotalDnaPS += ((items[item].income * items[item].amount * items[item].level)* (prestigeItems.itemMult.amount+1));
+        TotalDnaPS += ((items[item].income * items[item].amount * items[item].level) * (prestigeItems.itemMult.amount+1));
     }
     let tickPS = (prestigeItems.gameTick.tick/1000);
     TotalDnaPS = TotalDnaPS/tickPS;
@@ -36,18 +36,22 @@ function calcTotalCellPS(){
 }
 
 function calcCurrPS(itemVal){
-    var itemPS = (items[itemVal].income * items[itemVal].amount * items[itemVal].level);
+    var itemPS = (items[itemVal].income * items[itemVal].amount * items[itemVal].level * (prestigeItems.itemMult.amount+1));
+    let tickPS = (prestigeItems.gameTick.tick/1000);
+    itemPS = itemPS/tickPS;
     return format(itemPS);
 }
 
 function calcCurrCellPS(itemVal){
-    var itemPS = (cellItems[itemVal].income * cellItems[itemVal].amount * cellItems[itemVal].level);
+    var itemPS = (cellItems[itemVal].income * cellItems[itemVal].amount * cellItems[itemVal].level * (prestigeItems.cellItemMult.amount+1));
+    let tickPS = (prestigeItems.gameTick.tick/1000);
+    itemPS = itemPS/tickPS;
     return format(itemPS);
 }
 
 function calcPrestigePoints(){
 
-    if((player.currencies.cell+player.currencies.dna) > 5000){
+    if(((player.currencies.cell*100)+player.currencies.dna) > 20000){
         let totalPlayerCurrency = (player.currencies.cell *10) + (player.currencies.dna);
         let pPointMult = ((player.prestigeLevel/2)+1) * ((prestigeItems.prestigeMult.amount+1) * 0.5);
         let pPointCalc = Math.sqrt(Math.log(totalPlayerCurrency)*5);
