@@ -1,173 +1,3 @@
-var player ={
-    prestigeLevel: 0,
-    currencies: {
-        dna: 0.0,
-        cell: 0.0
-    },  //currency
-    clickPower: 1,
-    gameTick: 1000,
-
-};
-
-var items = {
-    flies: {
-        id: "flies",
-        name: "Flies",
-        amount: 0,
-        cost: 10,
-        upg_cost: 1,
-        level: 1,
-        income: 1,
-    },
-    hands: {
-        id: "hands",
-        name: "Dirty hands",
-        amount: 0,
-        cost: 250,
-        upg_cost: 10,
-        level: 1,
-        income: 10,
-    },
-    food: {
-        id: "food",
-        name: "Infected food",
-        amount: 0,
-        cost: 1500,
-        upg_cost: 60,
-        level: 1,
-        income: 25,
-    },
-    air: {
-        id: "air",
-        name: "Air droplets",
-        amount: 0,
-        cost: 7500,
-        upg_cost: 250,
-        level: 1,
-        income: 100,
-    },
-    person: {
-        id: "person",
-        name: "Infected person",
-        amount: 0,
-        cost: 25000,
-        upg_cost: 1000,
-        level: 1,
-        income: 250,
-    },
-    mask: {
-        id: "mask",
-        name: "No masks",
-        amount: 0,
-        cost: 60000,
-        upg_cost: 2000,
-        level: 1,
-        income: 500,
-    },
-    kiss: {
-        id: "kiss",
-        name: "Kisses",
-        amount: 0,
-        cost: 1000000,
-        upg_cost: 30000,
-        level: 1,
-        income: 1000,
-    },
-    faeces: {
-        id: "faeces",
-        name: "Transfer of faecal matter",
-        amount: 0,
-        cost: 3250000,
-        upg_cost: 60500,
-        level: 1,
-        income: 1750,
-    },
-    blood: {
-        id: "blood",
-        name: "Infected blood transfer",
-        amount: 0,
-        cost: 12500000,
-        upg_cost: 125000,
-        level: 1,
-        income: 5000,
-    },
-    water: {
-        id: "water",
-        name: "Contaminated water",
-        amount: 0,
-        cost: 7500000,
-        upg_cost: 40000,
-        level: 1,
-        income: 10000,
-    },
-    pathogen: {
-        id: "pathogen",
-        name: "Deadly pathogens",
-        amount: 0,
-        cost: 15000000,
-        upg_cost: 100000,
-        level: 1,
-        income: 20000,
-    },
-    biowep: {
-        id: "biowep",
-        name: "Powerful Bio-Chemical Weapons",
-        amount: 0,
-        cost: 100000000,
-        upg_cost: 800000,
-        level: 1,
-        income: 400000,
-    },
-    biobomb: {
-        id: "biobomb",
-        name: "Powerful Bio-Chemical Nuclear Bomb",
-        amount: 0,
-        cost: 25000000000,
-        upg_cost: 160000000,
-        level: 1,
-        income: 1000000,
-    },
-    gas: {
-        id: "gas",
-        name: "Covid19 world gas",
-        amount: 0,
-        cost: 50000000000,
-        upg_cost: 2000000000,
-        level: 1,
-        income: 10000000,
-    },
-    ender: {
-        id: "ender",
-        name: "Ender of World - Corona Virus!",
-        amount: 0,
-        cost: 500000000000,
-        upg_cost: 500000000000,
-        level: 1,
-        income: 700000000,
-    },
-};
-
-var cellItems = {
-    fuse1: {
-        id: "fuse1",
-        name: "Cell Fuse I",
-        amount: 0,
-        cost: 50000,
-        upg_cost: 500000,
-        level: 1,
-        income: 1,
-    },
-    fuse2: {
-        id: "fuse2",
-        name: "Cell Fuse II",
-        amount: 0,
-        cost: 25000000,
-        upg_cost: 250000000,
-        level: 1,
-        income: 100,
-    },
-};
-
 function initialize() {
     load();
     updateAll();
@@ -185,16 +15,23 @@ function format(amount){
 function calcTotalDnaPS(){
     var TotalDnaPS = 0;
     for(var item in items){
-        TotalDnaPS += (items[item].income * items[item].amount * items[item].level);
+        TotalDnaPS += ((items[item].income * items[item].amount * items[item].level)* (prestigeItems.itemMult.amount+1));
     }
+    let tickPS = (prestigeItems.gameTick.tick/1000);
+    TotalDnaPS = TotalDnaPS/tickPS;
+
     return format(TotalDnaPS);
 }
 
 function calcTotalCellPS(){
     var TotalCellPS = 0;
     for(var item in cellItems){
-        TotalCellPS += (cellItems[item].income * cellItems[item].amount * cellItems[item].level);
+        TotalCellPS += (cellItems[item].income * cellItems[item].amount * cellItems[item].level)* (prestigeItems.cellItemMult.amount+1);
     }
+
+    let tickPS = (prestigeItems.gameTick.tick/1000);
+    TotalCellPS = TotalCellPS/tickPS;
+
     return format(TotalCellPS);
 }
 
@@ -208,35 +45,43 @@ function calcCurrCellPS(itemVal){
     return format(itemPS);
 }
 
+function calcPrestigePoints(){
 
-
-function addCurrency(val,id) {
-    var currency;
-    switch (id){
-        case 'dna': player.currencies.dna += val; break;
-        case 'cell': 
-        if(player.currencies.dna >= 100){player.currencies.dna -= 100;player.currencies.cell += val;}
-        else(console.log("Error, not enough dna"));
-        break;
+    if((player.currencies.cell+player.currencies.dna) > 5000){
+        let totalPlayerCurrency = (player.currencies.cell *10) + (player.currencies.dna);
+        let pPointMult = ((player.prestigeLevel/2)+1) * ((prestigeItems.prestigeMult.amount+1) * 0.5);
+        let pPointCalc = Math.sqrt(Math.log(totalPlayerCurrency)*5);
+        let pPointToGain = pPointCalc * pPointMult;
+        player.availablePPoint = pPointToGain;
     }
-    currency += val;
-    return val;
+    else{
+        player.availablePPoint = 0;
+    }
+    
 }
 
-function clickCurrency(id) {
-    addCurrency(player.clickPower,id);
+function updateGameTick(){
+    prestigeItems.gameTick.tick = (prestigeItems.gameTick.tick/prestigeItems.gameTick.amount);
 }
 
 function updateCurrencyUI() {
+    let item;
+        if (prestigeItems.clickPower.amount == 0){
+            item = prestigeItems.clickPower.amount+1;
+        }
+        else{
+            item = prestigeItems.clickPower.amount*5;
+        }
         for (var val in player.currencies){
             $("#" + val +"Amt").html(format(player.currencies[val]));
         }
-        if (player.currencies.dna >= 100){
+        if (player.currencies.dna >= 100*item){
             $("#cellClick").removeClass("disabled");
         }
         else{
             $("#cellClick").addClass("disabled");
         }
+        $("#prestigePointAmt").html(format(player.prestigePoint));
 }
 
 function updateItemsUI() {
@@ -307,6 +152,47 @@ function updateDnaPS(){
     $("#cellPS").html(calcTotalCellPS()+" Cell/s");
 }
 
+function updatePrestige(){
+    $(".prestigeLevel" ).html("Prestige Level: " + player.prestigeLevel);
+    $(".prestigeMult" ).html("Prestige Multiplier: " + (prestigeItems.prestigeMult.amount*100) + "%");
+    $(".availablePPoint" ).html("Available Prestige Points: " + format(Math.floor(player.availablePPoint)));
+
+}
+
+function updatePrestigeShop(){
+    for (var val in prestigeItems){
+        if(player.prestigePoint >= prestigeItems[val].cost){
+            $("." + val+"Container").css({color: 'green'});
+            }
+            else{
+                $("." + val + "Container").css({color: 'red'});
+            }
+        $("#" + val + "Name").html(prestigeItems[val].name);
+        $("#" + val + "Info").html(prestigeItems[val].info);
+        $("#" + val + "Amt").html("Bonus: +" + format((prestigeItems[val].amount*100)) + "%");
+        $("#" + val + "Cost").html("Cost: " + format(prestigeItems[val].cost) + " Prestige Points");
+        switch(val){
+            case "clickPower":
+                $("#" + val + "Amt").html("Bonus: +" + format((prestigeItems[val].amount*500)) + "%");
+                break;
+            case "gameTick":
+                $("#" + val + "Amt").html("Game Tick: " + format(prestigeItems[val].tick) );
+                break;
+        }
+    }
+}
+
+
+
+function clickCurrency(id) {
+    if (prestigeItems.clickPower.amount == 0){
+        addCurrency(prestigeItems.clickPower.amount+1,id);
+    }
+    else{
+        addCurrency((prestigeItems.clickPower.amount*5),id);
+    }
+}
+
 function clickItem(val){
     var currItem;
     for (var item in items){
@@ -321,22 +207,6 @@ function clickCellItem(val){
         currCellItem = cellItem;
     }
     $("."+ currCellItem + "Container").click(buyCellItem(val));
-}
-
-function buyItem(val){
-    if(player.currencies.dna >= items[val].cost){
-        player.currencies.dna -= items[val].cost;
-        items[val].cost = Math.round((items[val].cost * 1.2) + ((items[val].amount*0.3)+1));
-        items[val].amount += 1;
-    }
-}
-
-function buyCellItem(val){
-    if(player.currencies.dna >= cellItems[val].cost){
-        player.currencies.dna -= cellItems[val].cost;
-        cellItems[val].cost = Math.round((cellItems[val].cost * 1.3) + ((cellItems[val].amount*0.4)+1));
-        cellItems[val].amount += 1;
-    }
 }
 
 function clickUpgrade(val){
@@ -355,6 +225,40 @@ function clickCellUpgrade(val){
     $("." + currCellItem + "CellUpgContainer").click(buyCellUpgrade(val));
 }
 
+function clickPrestige(){
+    if(player.availablePPoint < 3){
+        alert("You have no available prestige points to claim!");
+    }
+    else{
+        var confirmation = confirm("Are you sure you want to prestige?");
+        if(confirmation == true){
+            calcPrestigePoints();
+            player.prestigeLevel += 1;
+            player.prestigePoint += player.availablePPoint;
+            reset();
+        }
+    }
+}
+
+
+
+
+function buyItem(val){
+    if(player.currencies.dna >= items[val].cost){
+        player.currencies.dna -= items[val].cost;
+        items[val].cost = Math.round((items[val].cost * 1.2) + ((items[val].amount*0.3)+1));
+        items[val].amount += 1;
+    }
+}
+
+function buyCellItem(val){
+    if(player.currencies.dna >= cellItems[val].cost){
+        player.currencies.dna -= cellItems[val].cost;
+        cellItems[val].cost = Math.round((cellItems[val].cost * 1.3) + ((cellItems[val].amount*0.4)+1));
+        cellItems[val].amount += 1;
+    }
+}
+
 function buyUpgrade(val){
     if(player.currencies.cell >= items[val].upg_cost){
         player.currencies.cell -= items[val].upg_cost;
@@ -371,22 +275,62 @@ function buyCellUpgrade(val){
     }
 }
 
+function buyPrestige(val){
+    if(player.prestigePoint >= prestigeItems[val].cost){
+        if(val == "gameTick"){
+            player.prestigePoint -= prestigeItems[val].cost;
+            prestigeItems[val].cost = (prestigeItems[val].cost)*5;
+            prestigeItems[val].amount += 0.1;
+            updateGameTick();
+        }
+        else{
+            player.prestigePoint -= prestigeItems[val].cost;
+            prestigeItems[val].cost = (prestigeItems[val].cost)*2;
+            prestigeItems[val].amount += 1;
+        }
+    }
+
+}
+
+
+function addCurrency(val,id) {
+    var currency;
+    switch (id){
+        case 'dna': player.currencies.dna += val; break;
+        case 'cell': 
+        if(player.currencies.dna >= 100*val){player.currencies.dna -= 100*val;player.currencies.cell += val;}
+        break;
+    }
+    //add click upgrade
+    currency += val;
+    return val;
+}
+
 function itemGain(){
     for(var item in items){
-        player.currencies.dna += (items[item].income * items[item].amount * items[item].level);
+        player.currencies.dna += (items[item].income * items[item].amount * items[item].level) * (prestigeItems.itemMult.amount+1);
     }
 }
 
 function cellItemGain(){
     for(var cell in cellItems){
-        player.currencies.cell += (cellItems[cell].income * cellItems[cell].amount * cellItems[cell].level);
+        player.currencies.cell += (cellItems[cell].income * cellItems[cell].amount * cellItems[cell].level)* (prestigeItems.cellItemMult.amount+1);
     }
+}
+
+
+
+function reset(){
+    $.extend(true, player, resetPlayer);
+    $.extend(true, items, resetItems);
+    $.extend(true, cellItems, resetCellItems);
 }
 
 function save(){
     localStorage.setItem("playerData", JSON.stringify(player));
     localStorage.setItem("itemData", JSON.stringify(items));
     localStorage.setItem("cellItemData", JSON.stringify(cellItems));
+    localStorage.setItem("prestigeItemsData", JSON.stringify(prestigeItems));
     $('.toast').toast("show");
     console.log("saved");
 }
@@ -395,12 +339,15 @@ function load(){
     $.extend(player, JSON.parse(localStorage.getItem("playerData")));
     $.extend(items, JSON.parse(localStorage.getItem("itemData")));
     $.extend(cellItems, JSON.parse(localStorage.getItem("cellItemData")));
+    $.extend(prestigeItems, JSON.parse(localStorage.getItem("prestigeItemsData")));
+
 }
 
 function deleteSave(){
     localStorage.removeItem("playerData");
     localStorage.removeItem("itemData");
     localStorage.removeItem("cellItemData");
+    localStorage.removeItem("prestigeItemsData");
     location.reload();
 }
 
@@ -408,13 +355,16 @@ function exportSave(){
     var playerText = btoa(JSON.stringify(player));
     var itemText = btoa(JSON.stringify(items));
     var cellItemText = btoa(JSON.stringify(cellItems));
+    var prestigeItemsText = btoa(JSON.stringify(prestigeItems));
 
     $("#exportSaveContents1").toggle();
     $("#exportSaveContents2").toggle();
     $("#exportSaveContents3").toggle();
+    $("#exportSaveContents4").toggle();
     $("#exportSaveText1").val(playerText);
     $("#exportSaveText2").val(itemText);
     $("#exportSaveText3").val(cellItemText);
+    $("#exportSaveText4").val(prestigeItemsText);
 
 }
 
@@ -424,10 +374,13 @@ function importSave(){
         var playerText = $("#importSaveText1").val();
         var itemText = $("#importSaveText2").val();
         var cellItemText = $("#importSaveText3").val();
+        var prestigeItemsText = $("#importSaveText4").val();
 
         $.extend(player, JSON.parse(atob(playerText)));
         $.extend(items, JSON.parse(atob(itemText)));
         $.extend(cellItems, JSON.parse(atob(cellItemText)));
+        $.extend(prestigeItems, JSON.parse(atob(prestigeItemsText)));
+
     }
     catch(e){
         alert("Invalid save files");
@@ -445,19 +398,16 @@ function updateAll(){
     updateUpgradeUI();
     updateCellItemsUI();
     updateCellUpgradeUI();
+    updatePrestige();
+    updatePrestigeShop();
 }
 
 function gameLoop(){
-    var gameTick = player.gameTick;
-
-    window.setInterval(function(){
-        itemGain();
-        cellItemGain();
-        calcTotalDnaPS();
-    },gameTick);
 
     window.setInterval(function(){
         updateAll();
+        calcPrestigePoints();
+        calcTotalDnaPS();
     },50);
     //Game updates UI every 50ms.
 
@@ -465,6 +415,20 @@ function gameLoop(){
         save();
     },20000);
     //Save game every 20 seconds
+
+
 }
 
+function gameLoop2() {
+    console.log(prestigeItems.gameTick.tick);
+    clearInterval(run);
+
+    itemGain();
+    cellItemGain();
+
+    run = setInterval(gameLoop2, prestigeItems.gameTick.tick);
+
+}
+
+var run = setInterval(gameLoop2, prestigeItems.gameTick.tick);
 gameLoop();

@@ -36,20 +36,27 @@
     color: white;
 }
 
-.dnaContainer, .cellContainer{
+.dnaContainer, .cellContainer, .infoContainer, .prestigeContainer{
     border: 1px solid grey;
 }
 
 .item1Container, .item2Container{
-    border: 2px solid burlywood;
+    border: 2px solid #0267C1;
     background-color: #0D1F2D;
     color: #FB3640;
 }
 
 .upgrade1Container,.upgrade2Container,.upgrade3Container{
-    border: 2px solid#7EBCE6;
-    background-color: #332672;
+    border: 2px solid#E8B9AB;
+    background-color: #1d1545;
     color: #FF331F;
+}
+
+.prestigeShopContainer{
+    border: 2px solid red;
+    border: 2px solid#8B9474;
+    background-color:#040404;
+    
 }
 
 .btn-option{
@@ -58,6 +65,10 @@
     margin-right: 1rem;
 }
 
+.prestigeInfo{
+    height: 10rem;
+    font-size: 1.4rem;
+}
 
 #options{
     margin-left: 17.5rem;

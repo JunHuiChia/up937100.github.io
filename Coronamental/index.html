@@ -7,7 +7,8 @@
 
     <script src="lib/underscore-min.js" text="type/javascript"></script>
     <script src="lib/jquery.js" text="type/javascript"></script>
-	<script src="lib/bootstrap/js/bootstrap.js" text="type/javascript"></script>
+    <script src="lib/bootstrap/js/bootstrap.js" text="type/javascript"></script>
+    <script src="data.js" text="type/javascript"></script>
     <script src="main.js" text="type/javascript"></script>
 
 
@@ -28,24 +29,30 @@
         <div class="col-sm-6 mb-4 col-md-6 ">
             <!--Resources-->
             <div class="row">
-                <div class="col-sm-6 px-0">
-                    <div class="dnaContainer text-center">
+                <div class="col-sm-4 px-0 dnaContainer">
+                    <div class="text-center">
                         <span>DNA</span>
                         <div id="dnaAmt">0</div>
                         <button type="button" class="btn btn-light " id="dnaClick" onclick="clickCurrency('dna')">Grow</button>
                     </div>
                 </div>
-                <div class="col-sm-6 px-0">
-                    <div class="cellContainer text-center">
+                <div class="col-sm-4 px-0 cellContainer">
+                    <div class="text-center">
                         <span>Cells</span>
                         <div id="cellAmt">0</div>
                         <button type="button" class="btn btn-light disabled" id="cellClick" onclick="clickCurrency('cell')">Transform</button>
                     </div>
                 </div>
+                <div class="col-sm-4 px-0 prestigeContainer">
+                    <div class="text-center">
+                        <span>Prestige Points</span>
+                        <div id="prestigePointAmt">0</div>
+                    </div>
+                </div>
             </div>
             <!--End of Resources-->
             <!--Info box-->
-            <div class="row text-center">
+            <div class="row text-center infoContainer">
                 <span>100 DNA --> 1 Cell</span>
                 <div id="dnaPS"></div>
                 <div id="cellPS"></div>
@@ -217,6 +224,32 @@
                                     <div id="fuse2CellCost"></div>
                                     <div id="fuse2CellPS"></div>
                                 </div>
+                                <div class=" fuse3CellContainer text-center py-2 item2Container" onclick="clickCellItem('fuse3')">
+                                    <div id="fuse3CellName"></div>
+                                    <div id="fuse3CellAmount"></div>
+                                    <div id="fuse3CellCost"></div>
+                                    <div id="fuse3CellPS"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 px-1">
+                                <div class=" fuse4CellContainer text-center py-2 item2Container" onclick="clickCellItem('fuse4')">
+                                    <div id="fuse4CellName"></div>
+                                    <div id="fuse4CellAmount"></div>
+                                    <div id="fuse4CellCost"></div>
+                                    <div id="fuse4CellPS"></div>
+                                </div>
+                                <div class=" fuse5CellContainer text-center py-2 item2Container" onclick="clickCellItem('fuse5')">
+                                    <div id="fuse5CellName"></div>
+                                    <div id="fuse5CellAmount"></div>
+                                    <div id="fuse5CellCost"></div>
+                                    <div id="fuse5CellPS"></div>
+                                </div>
+                                <div class=" fuse6CellContainer text-center py-2 item2Container" onclick="clickCellItem('fuse6')">
+                                    <div id="fuse6CellName"></div>
+                                    <div id="fuse6CellAmount"></div>
+                                    <div id="fuse6CellCost"></div>
+                                    <div id="fuse6CellPS"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -239,8 +272,8 @@
                     </ul>
                 
                 <!--END of upgrade tab bars-->
-                <!--Upgrade 1 tab-->
                 <div class="tab-content"> 
+                    <!--Upgrade 1 tab-->
                     <div class="tab-pane fade show active" id="upgrade1" role="tabpanel" aria-labelledby="upgrade1Tab">
                         <div class="row">
                             <div class="col-md-4 px-1">
@@ -341,7 +374,7 @@
                     <!--Upgrades 3 tab (Cell upgrades)-->
                     <div class="tab-pane fade" id="upgrade3" role="tabpanel" aria-labelledby="upgrade3Tab">
                         <div class="row">
-                            <div class="col-md-4 px-1">
+                            <div class="col-md-4 px-1 offset-md-2">
                                 <div class=" fuse1CellUpgContainer text-center py-2 upgrade3Container" onclick="clickCellUpgrade('fuse1')">
                                     <div id="fuse1CellNameUpg"></div>
                                     <div id="fuse1CellLevelUpg"></div>
@@ -351,6 +384,28 @@
                                     <div id="fuse2CellNameUpg"></div>
                                     <div id="fuse2CellLevelUpg"></div>
                                     <div id="fuse2CellCostUpg"></div>
+                                </div>
+                                <div class=" fuse3CellUpgContainer text-center py-2 upgrade3Container" onclick="clickCellUpgrade('fuse3')">
+                                    <div id="fuse3CellNameUpg"></div>
+                                    <div id="fuse3CellLevelUpg"></div>
+                                    <div id="fuse3CellCostUpg"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 px-1 ">
+                                <div class=" fuse4CellUpgContainer text-center py-2 upgrade3Container" onclick="clickCellUpgrade('fuse4')">
+                                    <div id="fuse4CellNameUpg"></div>
+                                    <div id="fuse4CellLevelUpg"></div>
+                                    <div id="fuse4CellCostUpg"></div>
+                                </div>
+                                <div class=" fuse5CellUpgContainer text-center py-2 upgrade3Container" onclick="clickCellUpgrade('fuse5')">
+                                    <div id="fuse5CellNameUpg"></div>
+                                    <div id="fuse5CellLevelUpg"></div>
+                                    <div id="fuse5CellCostUpg"></div>
+                                </div>
+                                <div class=" fuse6CellUpgContainer text-center py-2 upgrade3Container" onclick="clickCellUpgrade('fuse6')">
+                                    <div id="fuse6CellNameUpg"></div>
+                                    <div id="fuse6CellLevelUpg"></div>
+                                    <div id="fuse6CellCostUpg"></div>
                                 </div>
                             </div>
                         </div>
@@ -362,27 +417,67 @@
             <div class="tab-pane fade" id="prestige" role="tabpanel" aria-labelledby="prestigeTab">
                 <ul class="nav nav-pills mb-3 justify-content-center upgNav" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <a id="prestige1Tab" href="#prestige1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="prestige1" aria-selected="true">Prestige</a>
+                        <a id="prestige1Tab" href="#prestige1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="prestige1" aria-selected="true">Prestige Info</a>
                     </li>
                     <li class="nav-item">
                         <a id="prestige2Tab" href="#prestige2" class="nav-link " data-toggle="pill" role="tab" aria-controls="prestige2" aria-selected="true">Prestige Shop</a>
                     </li>
                 </ul>
-            
                 <div class="tab-content"> 
+                    <!--Prestige Info tab-->
                     <div class="tab-pane show active" id="prestige1" role="tabpanel" aria-labelledby="prestige1tab">
-                        <div class="row">
-                            <div class="col-md-4 px-1">
-                                Prestige
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 text-center prestigeInfo">
+                                <div class="prestigeLevel"></div>
+                                <div class="prestigeMult"></div>
+                                <div class="availablePPoint"></div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 text-center">
+                                <button type="button" class="btn btn-lg btn-danger" id="prestigeButton" onclick="clickPrestige()">Prestige!</button>
                             </div>
                         </div>
                     </div>
+                    <!--Prestige Shop tab-->
                     <div class="tab-pane fade" id="prestige2" role="tabpanel" aria-labelledby="prestige2tab">
                         <div class="row">
+                            <div class="col-md-4 offset-md-2 px-1">
+                                <div class=" itemMultContainer text-center py-2 prestigeShopContainer" onclick="buyPrestige('itemMult')">  
+                                    <div id="itemMultName"></div>
+                                    <div id="itemMultInfo"></div>
+                                    <div id="itemMultAmt"></div>
+                                    <div id="itemMultCost"></div>
+                                </div>
+                                <div class=" cellItemMultContainer text-center py-2 prestigeShopContainer" onclick="buyPrestige('cellItemMult')">
+                                    <div id="cellItemMultName"></div>
+                                    <div id="cellItemMultInfo"></div>
+                                    <div id="cellItemMultAmt"></div>
+                                    <div id="cellItemMultCost"></div>
+                                </div>
+                                <div class=" gameTickContainer text-center py-2 prestigeShopContainer" onclick="buyPrestige('gameTick')">
+                                    <div id="gameTickName"></div>
+                                    <div id="gameTickInfo"></div>
+                                    <div id="gameTickAmt"></div>
+                                    <div id="gameTickCost"></div>
+                                </div>
+                            </div>
                             <div class="col-md-4 px-1">
-                                shopitem
+                                <div class=" clickPowerContainer text-center py-2 prestigeShopContainer" onclick="buyPrestige('clickPower')">
+                                    <div id="clickPowerName"></div>
+                                    <div id="clickPowerInfo"></div>
+                                    <div id="clickPowerAmt"></div>
+                                    <div id="clickPowerCost"></div>
+                                </div>
+                                <div class=" prestigeMultContainer text-center py-2 prestigeShopContainer" onclick="buyPrestige('prestigeMult')">
+                                    <div id="prestigeMultName"></div>
+                                    <div id="prestigeMultInfo"></div>
+                                    <div id="prestigeMultAmt"></div>
+                                    <div id="prestigeMultCost"></div>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -440,12 +535,21 @@
                         </tr>
                         <tr>
                             <td>
+                            </td>
+                            <td id="exportSaveContents4" style="display: none;">
+                                4:
+                                <input id="exportSaveText4" type="text" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <button type="button" class="btn btn-secondary btn-lg btn-option" id="load" onclick="importSave()">Import save</button>
                             </td>
                             <td id="importSaveContents1" style>Paste your text here:<br>
                                 1:<input id="importSaveText1" type="text"> <br>
                                 2:<input id="importSaveText2" type="text"> <br>
-                                3:<input id="importSaveText3" type="text">
+                                3:<input id="importSaveText3" type="text"> <br>
+                                4:<input id="importSaveText4" type="text">
                             </td>
                         </tr>
                     </tbody>
