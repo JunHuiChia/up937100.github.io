@@ -326,7 +326,7 @@ function clickCellItem(val){
 function buyItem(val){
     if(player.currencies.dna >= items[val].cost){
         player.currencies.dna -= items[val].cost;
-        items[val].cost = (items[val].cost * 1.2) + ((items[val].amount*0.25)+1);
+        items[val].cost = Math.round((items[val].cost * 1.2) + ((items[val].amount*0.3)+1));
         items[val].amount += 1;
     }
 }
@@ -334,7 +334,7 @@ function buyItem(val){
 function buyCellItem(val){
     if(player.currencies.dna >= cellItems[val].cost){
         player.currencies.dna -= cellItems[val].cost;
-        cellItems[val].cost = (cellItems[val].cost * 1.3) + ((cellItems[val].amount*0.4)+1);
+        cellItems[val].cost = Math.round((cellItems[val].cost * 1.3) + ((cellItems[val].amount*0.4)+1));
         cellItems[val].amount += 1;
     }
 }
@@ -358,7 +358,7 @@ function clickCellUpgrade(val){
 function buyUpgrade(val){
     if(player.currencies.cell >= items[val].upg_cost){
         player.currencies.cell -= items[val].upg_cost;
-        items[val].upg_cost = (items[val].upg_cost * 1.2) + ((items[val].level-1)*0.35);
+        items[val].upg_cost = Math.round((items[val].upg_cost * 1.5) + ((items[val].level-1)*0.4));
         items[val].level += 1;
     }
 }
@@ -366,7 +366,7 @@ function buyUpgrade(val){
 function buyCellUpgrade(val){
     if(player.currencies.cell >= cellItems[val].upg_cost){
         player.currencies.cell -= cellItems[val].upg_cost;
-        cellItems[val].upg_cost = (cellItems[val].upg_cost * 1.25) + ((cellItems[val].level-1)*0.4);
+        cellItems[val].upg_cost = Math.round((cellItems[val].upg_cost * 1.75) + ((cellItems[val].level-1)*0.4));
         cellItems[val].level += 1;
     }
 }
@@ -400,6 +400,7 @@ function load(){
 function deleteSave(){
     localStorage.removeItem("playerData");
     localStorage.removeItem("itemData");
+    localStorage.removeItem("cellItemData");
     location.reload();
 }
 
