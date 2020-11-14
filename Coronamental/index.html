@@ -185,16 +185,23 @@
                                     <div id="biobombCost"></div>
                                     <div id="biobombDnaPS"></div>
                                 </div>
-                                <div class=" wanContainer text-center py-2 item2Container" onclick="clickItem('wan')">
-                                    <div id="wanName"></div>
-                                    <div id="wanAmount"></div>
-                                    <div id="wanCost"></div>
-                                    <div id="wanDnaPS"></div>
+                                <div class=" gasContainer text-center py-2 item2Container" onclick="clickItem('gas')">
+                                    <div id="gasName"></div>
+                                    <div id="gasAmount"></div>
+                                    <div id="gasCost"></div>
+                                    <div id="gasDnaPS"></div>
+                                </div>
+                                <div class=" enderContainer text-center py-2 item2Container" onclick="clickItem('ender')">
+                                    <div id="enderName"></div>
+                                    <div id="enderAmount"></div>
+                                    <div id="enderCost"></div>
+                                    <div id="enderDnaPS"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--End of items 2 tab-->
+                    <!--Cell items tab-->
                     <div class="tab-pane fade" id="items3" role="tabpanel" aria-labelledby="items3Tab">
                         <div class="row">
                             <div class="col-md-4 offset-md-2 px-1">
@@ -213,6 +220,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--END of Cell items tab-->
                 </div>
                 <!--End of items content Tab-->
             </div>
@@ -293,7 +301,7 @@
                     <!--Start of upgrade 2 tab-->
                     <div class="tab-pane fade" id="upgrade2" role="tabpanel" aria-labelledby="upgrade2Tab">
                         <div class="row">
-                            <div class="col-md-4 px-1">
+                            <div class="col-md-4 offset-md-2 px-1">
                                 <div class=" waterUpgContainer text-center py-2 upgrade1Container" onclick="clickUpgrade('water')">
                                     <div id="waterNameUpg"></div>
                                     <div id="waterLevelUpg"></div>
@@ -316,10 +324,15 @@
                                     <div id="biobombLevelUpg"></div>
                                     <div id="biobombCostUpg"></div>
                                 </div>
-                                <div class=" wanUpgContainer text-center py-2 upgrade1Container" onclick="clickUpgrade('wan')">
-                                    <div id="wanNameUpg"></div>
-                                    <div id="wanLevelUpg"></div>
-                                    <div id="wanCostUpg"></div>
+                                <div class=" gasUpgContainer text-center py-2 upgrade1Container" onclick="clickUpgrade('gas')">
+                                    <div id="gasNameUpg"></div>
+                                    <div id="gasLevelUpg"></div>
+                                    <div id="gasCostUpg"></div>
+                                </div>
+                                <div class=" enderUpgContainer text-center py-2 upgrade1Container" onclick="clickUpgrade('ender')">
+                                    <div id="enderNameUpg"></div>
+                                    <div id="enderLevelUpg"></div>
+                                    <div id="enderCostUpg"></div>
                                 </div>
                             </div>
                         </div>
@@ -351,17 +364,71 @@
             </div>
             <!--Options Tab-->
             <div class="tab-pane fade" id="options" role="tabpanel" aria-labelledby="optionsTab">
-                <div class="row">
-                    <div class="col-sm-4">list of options here</div>
-                    <button type="button" class="btn btn-light " id="save" onclick="save()">Save</button>
-                    <button type="button" class="btn btn-light " id="load" onclick="load()">Load</button>
-                    <button type="button" class="btn btn-light " id="load" onclick="deleteSave()">Wipe save</button>
-                    </div>
-                </div>
+                <table id="optionTable">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-secondary btn-lg btn-option" id="save" onclick="save()">Save</button>
+                            </td>
+                            <td>
+                                Save game
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-secondary btn-lg btn-option" id="load" onclick="load()">Load</button>
+                            </td>
+                            <td>
+                                Load game
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-secondary btn-lg btn-option" id="load" onclick="deleteSave()">Wipe save</button>
+                            </td>
+                            <td>
+                                Warning: This cannot be undone!
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-secondary btn-lg btn-option" id="load" onclick="exportSave()">Export save</button>
+                            </td>
+                            <td id="exportSaveContents1" style="display: none;">Copy these:<br>1:
+                                <input id="exportSaveText1" type="text" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td id="exportSaveContents2" style="display: none;">
+                                2:
+                                <input id="exportSaveText2" type="text" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td id="exportSaveContents3" style="display: none;">
+                                3:
+                                <input id="exportSaveText3" type="text" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-secondary btn-lg btn-option" id="load" onclick="importSave()">Import save</button>
+                            </td>
+                            <td id="importSaveContents1" style>Paste your text here:<br>
+                                1:<input id="importSaveText1" type="text"> <br>
+                                2:<input id="importSaveText2" type="text"> <br>
+                                3:<input id="importSaveText3" type="text">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
 
 
     <div class="toast fade " role="alert" aria-live="assertive" aria-atomic="true">
