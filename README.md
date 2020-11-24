@@ -7,4 +7,4 @@ Old version
 <a href="https://up937100.github.io/Coronamental old/" target="_blank">Play Here</a>
 
 Bing Background
-![bing-background-test](https://up937100.github.io/Bing_Backgrounds/)
+[bing-background-test](https://up937100.github.io/Bing_Backgrounds/)
