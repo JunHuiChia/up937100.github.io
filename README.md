@@ -1,10 +1,10 @@
 # Coronamental
 
-A mini project of mine to create an incremental game.
-[New-coronamental](https://up937100.github.io/Coronamental/ "Play here")
+A mini project of mine to create an incremental game.  
+[Play New](https://up937100.github.io/Coronamental/)
 
-Old version
-[Old-coronamental](https://up937100.github.io/Coronamental%20old/ "Play Here")
+Old version  
+[Play Old](https://up937100.github.io/Coronamental%20old/)
 
-Bing Background
-[bing-background-test](https://up937100.github.io/Bing_Backgrounds/ "Site")
+Bing Background  
+[Bing Background Image](https://up937100.github.io/Bing_Backgrounds/)
