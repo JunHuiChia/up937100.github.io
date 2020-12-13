@@ -3,41 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="jquery.js" text="type/javascript"></script>
     <script src="main.js" text="type/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <title>Jun's Portfolio</title>
 </head>
 <body>
-    <header>
-        <nav class = "navbar navbar-expand-sm navbar-expand-md navbar-expand-lg bg-dark navbar-dark fixed-top justify-content-between">
-            <a class="navbar-brand logo1" href="#home">
-                <img class="logo"src="./Images/Logo.png " alt="Logo">
-            </a>
-            <ul class= "navbar-nav topBar">
-                <li class = "nav-item">
-                    <a class = "nav-link active" data-toggle="tab" href="#home">Home</a>
-                </li>
-                <li class = "nav-item">
-                    <a class = "nav-link" data-toggle="tab" href="#projects">Projects</a>
-                </li>
-                <li class = "nav-item">
-                    <a class = "nav-link" data-toggle="tab" href="#about">About</a>
-                </li>
-                <li class = "nav-item">
-                    <a class = "nav-link" data-toggle="tab" href="#contact">Contact</a>
-                </li>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo">
+                <a href="#home">
+                    <img src="./Images/Logo.png" alt="logo">
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
 
-<h1>main</h1>
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="home-text1">Hello, My name is</div>
+                <div class="home-text2">Jun Hui Chia</div>
+                <div class="home-text3">Aspiring <span class="typing"></span></div>
+            </div>
+        </div>
+    </section>
 
-    <footer> 
-        more info etc..
-    </footer>
+    <section class="projects" id="projects">
+        <div class="max-width">
+            <h2 class="title">Projects</h2>
+            <div class="projects-content">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">About me</h2>
+            <div class="about-content">
+                 <div class="column-left">
+                     <img src="" alt="Selfie">
+                 </div>
+                 <div class="column-right">
+                     <div class="text">I'm Jun Hui Chia and ... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius quo cumque sunt perferendis laboriosam voluptates doloribus saepe sequi vitae voluptatum repellendus eum dolorum, ullam id doloremque beatae magnam alias in!</div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="title">Contact me</h2>
+        </div>
+    </section>
+
 </body>
 
 </html>
