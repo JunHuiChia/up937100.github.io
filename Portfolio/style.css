@@ -244,6 +244,29 @@ section{
 }
 
 
+/* footer styling  */
+
+footer{
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    padding: 4px;
+}
+
+footer span{
+    color: white;
+    text-align: center;
+}
+
+footer span a{
+    color: red;
+    text-decoration: none;
+}
+
+footer span a:hover{
+    text-decoration: underline;
+    color: aqua;
+}
 
 /* reposnive media query start  */
 @media (max-width:1436px){
@@ -364,6 +387,11 @@ section{
         padding-bottom: 2rem;
     }
 
+
+    
+    footer{
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 776px){
