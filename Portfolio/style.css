@@ -142,7 +142,7 @@ html{
 .projects .projects-content{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     margin-bottom: 1rem;
 }
@@ -205,6 +205,10 @@ section{
     background-size: cover;   
 }
 
+.about .title{
+    padding-bottom: 4rem;
+}
+
 .about .about-content{
     display: flex;
     flex-wrap: wrap;
@@ -221,12 +225,13 @@ section{
 }
 
 .about .about-content .right .text{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
 }
 
 .about .about-content .right p{
+    font-size: 1.2rem;
     text-align: justify;
 }
 
@@ -241,7 +246,22 @@ section{
 
 
 /* reposnive media query start  */
+@media (max-width:1436px){
+    .projects{
+        height: auto;
+    }
+
+    .projects .projects-content .project-box{
+        max-width: 15rem;
+        min-height: 20rem;
+    }
+}
+
 @media (max-width: 1250px){
+    .about{
+        height: auto;
+    }
+
     .about .about-content .column{
         width: 100%;
     }
@@ -260,6 +280,12 @@ section{
 }
 
 @media (max-width: 990px){
+    
+    .title{
+        font-size: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
     .max-width{
         padding: 0 40px;
     }
@@ -314,8 +340,43 @@ section{
         margin-left: 0;
     }
 
+    .projects .projects-content .project-box .project-title{
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    .projects .projects-content .project-box .project-title p{
+        font-size: 0.5rem;
+    }
+
+    .about .about-content .left img{
+        height: 300px;
+        width: 250px;
+    }
+
+    .about .about-content .right .text{
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    
+    .about .about-content .right p{
+        font-size: 1rem;
+        text-align: justify;
+        padding-bottom: 2rem;
+    }
 
 }
+
+@media (max-width: 776px){
+    
+    .projects .projects-content .project-box .project-title{
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    .projects .projects-content .project-box .project-title p{
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 550px){
     .max-width{
         padding: 0 0.4rem;
@@ -338,6 +399,11 @@ section{
     .home .home-content .home-text3{
         font-size: 2rem;
         margin-left: 0;
+    }
+
+    .about .about-content .right{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
 }
