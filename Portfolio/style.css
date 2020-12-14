@@ -10,6 +10,14 @@ html{
     font-family: Roboto Slab;
 }
 
+.title{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
 .navbar{
     position: fixed;
     width: 100%;
@@ -121,14 +129,66 @@ html{
 }
 
 /* projects section  */
+.projects{
+    display:flex;
+    background:url("./Images/projectPattern.png") no-repeat center;
+    height: 94vh;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-size: cover;     
+}
 
-.projects .title{
+
+.projects .projects-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+
+.projects .projects-content .project-box{
+    max-width: 20rem;
+    min-height: 20rem;
+    border: 2px transparent solid;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 2em;
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(85, 68, 68, 0.05);
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.project1{
+    position: relative;
+    left: -90rem;
+    transition: all 1s ease;
+}
+
+.project2{
+    position: relative;
+    left: -90rem;
+    transition: all 0.8s ease;
+}
+
+.project3{
+    position: relative;
+    left: -90rem;
+    transition: all 0.6s ease;
+}
+
+.project-box.animate{
+    transform: translateX(90rem);
+}
+
+.projects .projects-content .project-box .project-title{
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 500;
-    padding-top: 4rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-top: 1rem;
     padding-bottom: 2rem;
-    
 }
 
 /* about section  */
@@ -139,19 +199,12 @@ section{
 .about{
     display:flex;
     background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiB2aWV3Qm94PSIwIDAgNDAsNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMzUpICI+PHJlY3QgaWQ9InBhdHRlcm4tYmFja2dyb3VuZCIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSgxMjEsIDc5LCAxNDYsMSkiPjwvcmVjdD4gPHBhdGggZmlsbD0icmdiYSgxMjEsIDc5LCAxNDYsMSkiIGQ9Ik0tMC41IDIwIGgxIHYyIGgtMSB6TTE5LjUgMjAgaDEgdjIgaC0xIHpNMzkuNSAyMCBoMSB2MiBoLTEgek01OS41IDIwIGgxIHYyIGgtMSB6Ij48L3BhdGg+PHBhdGggZmlsbD0icmdiYSg5NSwgMTkxLCAyNDksMSkiIGQ9Ik05Ljc1IDIwIGgwLjUgdjIgaC0wLjUgek0yOS43NSAyMCBoMC41IHYyIGgtMC41IHpNNDkuNzUgMjAgaDAuNSB2MiBoLTAuNSB6TTY5Ljc1IDIwIGgwLjUgdjIgaC0wLjUgeiI+PC9wYXRoPjwvcGF0dGVybj4gIDwvZGVmcz4gPHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSI+PC9yZWN0Pjwvc3ZnPg==")no-repeat center;
-    height: 100vh;
+    height: 94vh;
     min-height: 500px;
     background-attachment: fixed;
     background-size: cover;   
 }
 
-.about .title{
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 500;
-    padding-bottom: 2rem;
-    
-}
 .about .about-content{
     display: flex;
     flex-wrap: wrap;
