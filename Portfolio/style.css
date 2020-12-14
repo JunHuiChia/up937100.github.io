@@ -164,19 +164,19 @@ html{
 .project1{
     position: relative;
     left: -90rem;
-    transition: all 1s ease;
+    transition: all 1s ease-in;
 }
 
 .project2{
     position: relative;
     left: -90rem;
-    transition: all 0.8s ease;
+    transition: all 0.9s ease-in;
 }
 
 .project3{
     position: relative;
     left: -90rem;
-    transition: all 0.6s ease;
+    transition: all 0.8s ease-in;
 }
 
 .project-box.animate{
