@@ -12,10 +12,12 @@ html{
 
 .title{
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 600;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    text-decoration: underline;
+    text-decoration-thickness: 1rem;
 }
 
 .navbar{
@@ -244,6 +246,105 @@ section{
 }
 
 
+/* contact styling */
+
+.contact{
+    display:flex;
+    background:url("./Images/content_bg.png")no-repeat center;
+    height: 80vh;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-size: cover;   
+}
+
+.contact .title{
+    padding-bottom: 5rem;
+}
+
+.contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact .contact-content .column{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact .contact-content .left .head{
+    font-weight: 650;
+}
+
+.contact .contact-content .left .sub-text{
+    margin-bottom: 1.5rem;
+}
+
+.contact .contact-content .right{
+    font-size: 1.3rem;
+}
+
+.contact .contact-content .row{
+    display: flex;
+    height: 3.5rem;
+    align-items: center;
+}
+
+
+.contact .contact-content .sub-title{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.contact .contact-content .fa-user{
+    margin-right: 3px;
+}
+
+.contact .contact-content .info{
+    margin-left: 1.5rem;
+}
+
+.contact .contact-content i{
+    font-size: 1.5rem;
+}
+
+.contact .contact-content .right .row{
+    margin: 2rem;
+}
+
+.contact .contact-content .right .row .text{
+    color: black;
+    text-decoration: underline;
+}
+
+.contact .contact-content .right .row .text:hover{
+    text-decoration: none;
+    color: blue;
+}
+
+.contact .contact-content .right .linkedin-logo{
+    height: 64px;
+    width: auto;
+    padding: 0 2rem 0 2rem;
+}
+
+.contact .contact-content .right .github-logo{
+    height: 64px;
+    padding: 0 2rem 0 2rem;
+}
+
+.contact .contact-content .right .github .text{
+    margin-left: 11.25px;
+}
+
+.contact .contact-content .right a:hover{
+    transform: scale(1.1);
+}
+
+
+
+
 /* footer styling  */
 
 footer{
@@ -270,9 +371,6 @@ footer span a:hover{
 
 /* reposnive media query start  */
 @media (max-width:1436px){
-    .projects{
-        height: auto;
-    }
 
     .projects .projects-content .project-box{
         max-width: 15rem;
@@ -300,12 +398,16 @@ footer span a:hover{
     .about .about-content .left img{
         margin-left: 0;
     }
+
+    .projects{
+        height: auto;
+    }
 }
 
 @media (max-width: 990px){
     
     .title{
-        font-size: 2rem;
+        font-size: 2.5rem;
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
@@ -387,8 +489,11 @@ footer span a:hover{
         padding-bottom: 2rem;
     }
 
-
+    .contact .contact-content .sub-title{
+        font-size: 1.5rem;
+    }
     
+
     footer{
         font-size: 0.9rem;
     }
@@ -403,6 +508,27 @@ footer span a:hover{
     .projects .projects-content .project-box .project-title p{
         font-size: 1rem;
     }
+
+    .contact{
+        background:url("./Images/content_bg_sm.png")no-repeat center;  
+    }
+
+    .contact .contact-content .column{
+        width: 100%;
+        display: block;
+        margin-left: 0;
+    }
+    .contact .contact-content .sub-title {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    
+    .contact .contact-content .row {
+        justify-content: center;
+    }
+
+    .contact .contact-content .left .sub-text {
+        text-align: center;
 }
 
 @media (max-width: 550px){
