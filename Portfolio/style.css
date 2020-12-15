@@ -375,6 +375,7 @@ footer span a:hover{
     .projects .projects-content .project-box{
         max-width: 15rem;
         min-height: 20rem;
+        margin: 1rem;
     }
 }
 
@@ -465,13 +466,21 @@ footer span a:hover{
         margin-left: 0;
     }
 
+    .projects .projects-content .project-box{
+        max-width: 15rem;
+        min-height: 15rem;
+        font-size: 0.9rem;
+        margin: 1rem;
+    }
+
     .projects .projects-content .project-box .project-title{
         font-weight: 600;
-        font-size: 1rem;
+        font-size: 1.4rem;
     }
     .projects .projects-content .project-box .project-title p{
         font-size: 0.5rem;
     }
+
 
     .about .about-content .left img{
         height: 300px;
@@ -503,7 +512,7 @@ footer span a:hover{
     
     .projects .projects-content .project-box .project-title{
         font-weight: 600;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .projects .projects-content .project-box .project-title p{
         font-size: 1rem;
