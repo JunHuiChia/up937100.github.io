@@ -37,9 +37,9 @@ $(document).ready(function () {
 
 	// typing animation
 	var typed = new Typed('.typing', {
-		strings: ['^700 Web Developer'],
+		strings: ['Web Developer', 'Frontend Developer', 'Backend Developer'],
 		typeSpeed: 85,
-		backSpeed: 60,
-		loop: false,
+		backSpeed: 55,
+		loop: true,
 	});
 });
