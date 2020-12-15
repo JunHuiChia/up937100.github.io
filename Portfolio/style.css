@@ -40,9 +40,9 @@ html{
 }
 
 .logo a img{
-    padding: 5px;
+    padding: 3px;
     align-self: center;
-    width: 60px;
+    width: 180px;
 }
 
 .navbar .max-width{
