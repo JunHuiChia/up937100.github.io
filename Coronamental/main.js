@@ -73,7 +73,7 @@ function calcPrestigePoints() {
 		let pPointMult =
 			(player.prestigeLevel / 2 + 1) *
 			((prestigeItems.prestigeMult.amount + 1) * 2);
-		let pPointCalc = Math.sqrt(Math.log(totalPlayerCurrency) * 10);
+		let pPointCalc = Math.sqrt(Math.log(totalPlayerCurrency) * 5) * 3;
 		let pPointToGain = pPointCalc * pPointMult;
 		player.availablePPoint = pPointToGain;
 	} else {
