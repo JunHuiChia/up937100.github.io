@@ -378,6 +378,12 @@ section{
     margin-bottom: 1.5rem;
 }
 
+.contact .contact-content .left .info a{
+    font-style: normal;
+    color: black;
+}
+
+
 .contact .contact-content .right{
     font-size: 1.3rem;
 }
