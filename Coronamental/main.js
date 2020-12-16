@@ -66,7 +66,7 @@ function calcCurrCellPS(itemVal) {
 function calcPrestigePoints() {
 	if (
 		player.currencies.cell * 100 + player.currencies.dna >
-		20000 * player.prestigeLevel
+		20000 * player.prestigeLevel * 1.5
 	) {
 		let totalPlayerCurrency =
 			player.currencies.cell * 10 + player.currencies.dna;
@@ -313,7 +313,7 @@ function buyPrestige(val) {
 	if (player.prestigePoint >= prestigeItems[val].cost) {
 		if (val == 'gameTick') {
 			player.prestigePoint -= prestigeItems[val].cost;
-			prestigeItems[val].cost = prestigeItems[val].cost * 1.5;
+			prestigeItems[val].cost = prestigeItems[val].cost * 3;
 			prestigeItems[val].amount += 0.1;
 			updateGameTick();
 		} else {
