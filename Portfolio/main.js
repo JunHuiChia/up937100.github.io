@@ -35,6 +35,12 @@ $(document).ready(function () {
 		$('.menu-btn i').toggleClass('active');
 	});
 
+	$('.btn').click(function () {
+		$('.navbar .menu').toggleClass('active');
+		$('.menu-btn i').toggleClass('active');
+		console.log('worked');
+	});
+
 	// typing animation
 	var typed = new Typed('.typing', {
 		strings: ['Web Developer', 'Software Developer'],
