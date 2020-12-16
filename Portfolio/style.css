@@ -681,6 +681,23 @@ footer span a:hover{
 
 @media (max-width:765px){
     
+    .project1{
+        position: relative;
+        left: -90rem;
+        transition: all 1s ease-in;
+    }
+    
+    .project2{
+        position: relative;
+        left: -90rem;
+        transition: all 1.5s ease-in;
+    }
+    
+    .project3{
+        position: relative;
+        left: -90rem;
+        transition: all 2s ease-in;
+    }
     
     .skills .skills-content .row{
         display: flex;
