@@ -255,7 +255,6 @@ html{
     margin: 1rem;
     font-size: 2rem;
     transform: rotate(270deg);
-    background-color:;
 }
 
 .skills .skills-content .enhance{
@@ -476,6 +475,14 @@ footer span a:hover{
         min-height: 20rem;
         margin: 1rem;
     }
+
+    .skills{
+        height: auto;
+    }
+    
+    .skills .skills-content .skills-box{
+        flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 1250px){
@@ -580,6 +587,32 @@ footer span a:hover{
         font-size: 0.5rem;
     }
 
+    .skills .skills-content .row{
+        display: flex;
+        justify-content: flex-start;
+        margin: 2rem;
+    }
+
+    .skills .skills-content .category{
+        font-size: 1.5rem;
+        transform: rotate(270deg);
+        padding-top: 5rem;
+        text-decoration: underline;
+    }
+
+    .skills .skills-content .skills-box .en, 
+    .skills .skills-content .skills-box .le 
+    {
+        width: 9rem;
+        height: 6rem;
+    }
+
+    .skills .skills-content .skills-box .en img,
+    .skills .skills-content .skills-box .le img
+    {
+        height: 80px;
+    }
+
 
     .about .about-content .left img{
         height: 300px;
@@ -638,6 +671,35 @@ footer span a:hover{
     .contact .contact-content .left .sub-text {
         text-align: center;
     }
+}
+
+@media (max-width:765px){
+    
+    
+    .skills .skills-content .row{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 2rem;
+    }
+    
+    .skills .skills-content .category{
+        display: flex;
+        justify-content: center;
+        justify-self: center;
+        margin: 1rem;
+        text-align: center;
+        transform: rotate(0deg);
+        padding-top: 0;
+    }
+    
+    
+    .skills .skills-content .skills-box{
+        width: auto;
+        justify-content: center;
+    } 
+
+
 }
 
 @media (max-width: 550px){
