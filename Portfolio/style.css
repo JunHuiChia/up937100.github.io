@@ -175,8 +175,8 @@ html{
     border-radius: 2em;
     background-clip: padding-box;
     box-shadow: 10px 10px 10px rgba(85, 68, 68, 0.05);
-    padding: 1rem;
-    margin: 2rem;
+    padding: 2rem;
+    margin: 1rem;
 }
 
 
@@ -209,6 +209,23 @@ html{
     padding-top: 1rem;
     padding-bottom: 2rem;
 }
+
+.projects .projects-content .project1 a,
+.projects .projects-content .project2 a
+{
+    display: flex;    
+    justify-content: center;
+    align-items: flex-ends;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.projects .projects-content .project2 ul{
+    padding-left: 1rem;
+}
+
+
 
 /* skills section  */ 
 
@@ -258,11 +275,11 @@ html{
 }
 
 .skills .skills-content .enhance{
-    padding: 0rem 2rem 2rem 2rem;
+    padding: 0rem 1rem 2rem 2rem;
 }
 
 .skills .skills-content .learn{
-    padding: 1rem 2rem 2rem 2rem;
+    padding: 1rem 1rem 2rem 2rem;
     margin-right: 2.5rem;
 }
 
@@ -274,7 +291,8 @@ html{
 .skills .skills-content .skills-box .en, 
 .skills .skills-content .skills-box .le 
 {
-    width: 12rem;
+    width: 10rem;
+    min-width: fit-content;
     text-align: center;
     padding: 1rem;
     backdrop-filter: blur(25px);
@@ -610,6 +628,7 @@ footer span a:hover{
     .skills .skills-content .skills-box .le 
     {
         width: 9rem;
+        min-width: 0rem;
         height: 6rem;
     }
 
