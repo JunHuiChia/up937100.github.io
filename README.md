@@ -21,4 +21,4 @@ Langauges used:
 ## Coronomental
 
 A mini project of mine to create an incremental game.  
-[Play New](https://up937100.github.io/Coronamental/)
+[Play New](https://up937100.github.io/projects/Coronamental/)
