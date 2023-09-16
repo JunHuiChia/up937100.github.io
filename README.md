@@ -1,8 +1,8 @@
-# ME
+# ME 
 
 A repository for all my projects that require a website.
 
-## My Portfolio
+## My Portfolio (OUTDATED)
 
 [My Porfolio](https://up937100.github.io/)
 
